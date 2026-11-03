@@ -36,7 +36,8 @@ Students edit real HTML and CSS, not blocks or templates, in a loop the page nam
 ## Brand Commitments
 
 - Title "Building Your First Website", byline "Xavier Wang's Instruction", sidebar name "Website workshop".
-- The user asked for a technology theme. They explicitly rejected a "hacker-movie dark" look (black screens, green matrix text, glowing neon that is hard to read for long).
+- The user asked for a technology theme, then pinned a **Neumorphism (Soft UI)** style: light grey `#e0e5ec` surface only, dual top-left-lit shadows, no borders or gradients, hover shrinks shadows, press turns inset. Light mode only.
+- They explicitly rejected a "hacker-movie dark" look (black screens, green matrix text, glowing neon).
 
 ## Evidence on Hand
 
