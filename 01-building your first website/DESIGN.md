@@ -414,3 +414,14 @@ Xavier's session notes: white Surface, 14px corners, 26px 30px 30px padding, Lif
 - **Don't** add shadows to tiles, or shadows beyond the Rest and Lift pair.
 - **Don't** use the wide font widths for body text, buttons or labels, and don't uppercase or letter-space labels.
 - **Don't** set code in Archivo or plain-language names in mono.
+
+## Addendum: five element families
+
+The 12-lesson curriculum adds two families to the original three. Each keeps the same job-per-colour rule and the `.fam-*` hook (`--fam`, `--on-fam`, `--fam-soft`, `--fam-ink`).
+
+| Family | Light | Dark | Used for |
+|---|---|---|---|
+| JavaScript behavior (`.fam-js`) | `#c2410c` | `#ff9a62` | querySelector, addEventListener, classList, toggle; the JS editor tab |
+| AI skills (`.fam-ai`) | `#6d3fd6` | `#b49bff` | Session 2 AI tiles (prompts, iteration); the Session 2 marker |
+
+"Your table" now has 40 tiles in a 6-column grid: lessons 1–6 on the first row, 7–12 on the second. Code fonts render with ligatures off, so `=>` shows exactly as typed.

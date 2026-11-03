@@ -13,7 +13,7 @@ web
 
 ## Product Purpose
 
-A single-page, in-browser workshop that takes a beginner from an idea to a downloaded HTML file they wrote themselves. Eight lessons across two sessions (Session 1: HTML, Session 2: CSS) sit beside a real code editor and a live preview. Success is a student who can change a heading, explain a CSS rule, show one tested improvement, and leave with their own `my-first-website.html`.
+A single-page, in-browser workshop that takes a beginner from an idea to a downloaded HTML file they wrote themselves. Twelve lessons across two sessions (Session 1: Website Foundations — planning, HTML, CSS, JavaScript's role, usability; Session 2: Build with AI — AI tools, prompts, professional design, one interaction, iteration, testing and showcase) sit beside a real code editor and a live preview. Success is a student who can change a heading, explain a CSS rule, show one tested improvement, and leave with their own `my-first-website.html`.
 
 ## Positioning
 
@@ -28,9 +28,9 @@ Students edit real HTML and CSS, not blocks or templates, in a loop the page nam
 ## Capabilities and Constraints
 
 - Static files only: `index.html` (markup + inline script) and `style.css`. No build step, framework, or backend.
-- Features that must keep working: lesson navigation and progress (8 lessons, 2 sessions), mark complete / undo, back / next, notes fields, checklist, hints, quick understanding quiz, HTML/CSS editor tabs, Run preview, Wide/Narrow preview, Check my code, Ask AI for a hint (prompt helper only, no AI connection), Reset workspace, Download my website, Xavier's session notes dialog, mobile menu toggle, skip link.
-- Saved state uses localStorage key `xavier-first-website-v1`; its shape must stay compatible so students keep their work.
-- The preview iframe is sandboxed with a Content-Security-Policy; student HTML is sanitized (no scripts, forms, iframes, external resources) and links are inactive in preview.
+- Features that must keep working: lesson navigation and progress (12 lessons, 2 sessions), mark complete / undo, back / next, notes fields, checklist, hints, quick understanding quiz, HTML/CSS/JS editor tabs, Run preview, Wide/Narrow preview, Check my code, Ask AI for a hint (prompt helper only, no AI connection), Reset workspace, Download my website, Xavier's session notes dialog, mobile menu toggle, skip link.
+- Saved state uses localStorage key `xavier-first-website-v2` (adds `js`); code saved under the old `xavier-first-website-v1` key is carried over.
+- The preview iframe is sandboxed with a Content-Security-Policy; student HTML is sanitized (no inline scripts, event attributes, forms, or iframes); JavaScript from the JS tab runs only in the `allow-scripts` sandbox with no network access (images may load over https), and links are inactive in preview. Download saves my-website.html, style.css, and script.js.
 - Lesson text, hints, quizzes, and session notes are content and stay word for word.
 
 ## Brand Commitments
