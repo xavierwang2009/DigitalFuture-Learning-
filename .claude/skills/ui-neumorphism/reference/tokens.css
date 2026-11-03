@@ -1,0 +1,92 @@
+/* ui-neumorphism: drop-in tokens and core components (plain CSS) */
+
+:root {
+  color-scheme: light;
+  --bg: #e0e5ec;
+  --bg-2: #f0f0f3;
+  --dark: #b8bcc2;
+  --light: #ffffff;
+  --heading: #2b2f36;
+  --ink: #333333;
+  --ink-2: #545b66;
+  --accent: #6d5dfc;
+  --on-accent: #ffffff;
+  --accent-dark: #5246c9;
+  --accent-light: #8a7dff;
+
+  /* Light at top left: highlight -X/-Y, shadow +X/+Y */
+  --out-lg: 8px 8px 16px var(--dark), -8px -8px 16px var(--light);
+  --out-md: 6px 6px 12px var(--dark), -6px -6px 12px var(--light);
+  --out-sm: 4px 4px 8px var(--dark), -4px -4px 8px var(--light);
+  --out-xs: 3px 3px 6px var(--dark), -3px -3px 6px var(--light);
+  --in-lg: inset 8px 8px 16px var(--dark), inset -8px -8px 16px var(--light);
+  --in-md: inset 6px 6px 12px var(--dark), inset -6px -6px 12px var(--light);
+  --in-sm: inset 4px 4px 8px var(--dark), inset -4px -4px 8px var(--light);
+  --in-xs: inset 2px 2px 4px var(--dark), inset -2px -2px 4px var(--light);
+  --accent-in: inset 4px 4px 8px var(--accent-dark), inset -4px -4px 8px var(--accent-light);
+  --ring: 0 0 0 2px var(--accent);
+
+  --card: var(--out-lg);
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --soft: 300ms ease-in-out;
+}
+
+html { background: var(--bg); color: var(--ink); }
+body { margin: 0; background: var(--bg); }
+h1, h2, h3 { color: var(--heading); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--r-md); }
+
+/* Card */
+.card { padding: 32px; border-radius: var(--r-xl); background: var(--bg); box-shadow: var(--card); }
+
+/* Button: raised → smaller on hover → inset when pressed. No movement. */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 10px 18px;
+  border: 0; border-radius: var(--r-md);
+  background: var(--bg); color: #3d434c; box-shadow: var(--out-md);
+  font: inherit; font-weight: 600; cursor: pointer;
+  transition: box-shadow var(--soft), color var(--soft), opacity var(--soft);
+}
+.btn:hover { box-shadow: var(--out-xs); color: var(--ink); }
+.btn:active, .btn[aria-pressed="true"] { box-shadow: var(--in-sm); }
+.btn:disabled { opacity: .5; box-shadow: var(--out-xs); cursor: default; }
+.btn--primary { background: var(--accent); color: var(--on-accent); }
+.btn--primary:hover { color: var(--on-accent); }
+.btn--primary:active { box-shadow: var(--accent-in); }
+
+/* Input: deep inset that relaxes on focus */
+.input {
+  width: 100%; min-height: 46px; padding: 11px 14px;
+  border: 0; border-radius: var(--r-md);
+  background: var(--bg); color: var(--ink);
+  box-shadow: var(--in-md);
+  transition: box-shadow var(--soft);
+}
+.input:focus { outline: none; box-shadow: var(--in-xs), var(--ring); }
+
+/* Segmented tabs: inset track, raised selected tab */
+.tabs { display: inline-flex; gap: 4px; padding: 5px; border-radius: var(--r-lg); background: var(--bg); box-shadow: var(--in-xs); }
+.tabs .btn { min-height: 38px; box-shadow: none; color: var(--ink-2); }
+.tabs .btn[aria-pressed="true"] { box-shadow: var(--out-xs); color: var(--ink); }
+
+/* Well: an inset display area inside a card (preview, console, code sample) */
+.well { padding: 16px; border-radius: var(--r-lg); background: var(--bg); box-shadow: var(--in-sm); }
+
+/* Disclosure: raised pill that presses in when open */
+summary { padding: 10px 16px; border-radius: var(--r-md); background: var(--bg); box-shadow: var(--out-sm); cursor: pointer; list-style: none; transition: box-shadow var(--soft); }
+summary:hover { box-shadow: var(--out-xs); }
+details[open] > summary { box-shadow: var(--in-xs); }
+
+code, pre, textarea { font-variant-ligatures: none; }
+
+@media (max-width: 800px) {
+  :root { --card: var(--out-sm); }
+  .btn { box-shadow: var(--out-sm); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
