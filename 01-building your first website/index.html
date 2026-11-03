@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="light">
 <title>Building Your First Website — Xavier Wang’s Instruction</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -37,14 +37,16 @@
   <p class="tagline">Two sessions. One website.<br>Build something that is yours.</p>
   <nav id="lesson-nav" aria-label="Workshop lessons"></nav>
   <section class="ptable-wrap" aria-labelledby="table-title">
-    <div class="ptable-head"><h2 id="table-title">Your table</h2><span id="element-count">0 of 21 elements</span></div>
+    <div class="ptable-head"><h2 id="table-title">Your table</h2><span id="element-count">0 of 40 elements</span></div>
     <ul class="ptable" id="ptable" aria-label="Your table, by lesson. Use arrow keys to move between elements."></ul>
     <ul class="legend" aria-label="Element families">
       <li><span class="swatch fam-html"></span>HTML structure</li>
       <li><span class="swatch fam-css"></span>CSS style</li>
+      <li><span class="swatch fam-js"></span>JavaScript behavior</li>
+      <li><span class="swatch fam-ai"></span>AI skills</li>
       <li><span class="swatch fam-plan"></span>Plan &amp; test</li>
     </ul>
-    <div class="progress-wrap"><p id="progress-label">0 of 8 lessons complete</p><progress id="progress" class="sr-only" max="8" value="0" aria-labelledby="progress-label"></progress></div>
+    <div class="progress-wrap"><p id="progress-label">0 of 12 lessons complete</p><progress id="progress" class="sr-only" max="12" value="0" aria-labelledby="progress-label"></progress></div>
   </section>
   <div class="sidebar-bottom">
     <button id="facilitator" class="full-width"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Xavier’s session notes</button>
@@ -78,12 +80,14 @@
           <div class="tabs" role="group" aria-label="Choose code language">
             <button id="html-tab" aria-pressed="true" aria-controls="html-code"><span class="swatch fam-html" aria-hidden="true"></span>HTML</button>
             <button id="css-tab" aria-pressed="false" aria-controls="css-code"><span class="swatch fam-css" aria-hidden="true"></span>CSS</button>
+            <button id="js-tab" aria-pressed="false" aria-controls="js-code"><span class="swatch fam-js" aria-hidden="true"></span>JS</button>
           </div>
           <button class="primary" id="run"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg>Run preview</button>
         </div>
         <textarea id="html-code" class="editor fam-html" aria-label="HTML code" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
         <textarea id="css-code" class="editor fam-css" aria-label="CSS code" spellcheck="false" autocapitalize="off" autocomplete="off" hidden></textarea>
-        <div class="editor-note"><span id="code-note">HTML gives your page structure.</span><span id="preview-status" aria-live="polite">Preview up to date</span></div>
+        <textarea id="js-code" class="editor fam-js" aria-label="JavaScript code" spellcheck="false" autocapitalize="off" autocomplete="off" hidden></textarea>
+        <div class="editor-note"><span id="code-note" role="status">HTML gives your page structure.</span><span id="preview-status" aria-live="polite">Preview up to date</span></div>
       </div>
       <div class="panel">
         <div class="panel-bar">
@@ -93,13 +97,14 @@
             <button id="narrow" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-narrow"/></svg>Narrow</button>
           </div>
         </div>
-        <div class="preview-well"><iframe id="preview" title="Your website preview" sandbox=""></iframe></div>
-        <div class="preview-note">Local preview · HTML &amp; CSS only · links are inactive here</div>
+        <div class="preview-well"><iframe id="preview" title="Your website preview" sandbox="allow-scripts"></iframe></div>
+        <div class="preview-note">Local preview · your scripts run only here, offline · links are inactive here</div>
       </div>
       <div class="utility tools">
         <button id="check"><svg class="i" aria-hidden="true"><use href="#i-scan"/></svg>Check my code</button>
         <button id="ai-help"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg>Ask AI for a hint</button>
         <button id="reset"><svg class="i" aria-hidden="true"><use href="#i-reset"/></svg>Reset workspace</button>
+        <a class="pg-link" href="../playground/index.html" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wide"/></svg>Open the code playground</a>
       </div>
       <ol class="loop" aria-label="Edit, run, observe, explain">
         <li>Edit<svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></li>
@@ -155,74 +160,229 @@ section {
 a {
   color: #205a83;
 }`;
+const originalJS=`// JavaScript adds behavior to your page.
+// You will start here in Session 1, lesson 5.
+`;
+
+// Session 1: Website Foundations. Session 2: Build with AI.
+const sessions={1:{name:'Website Foundations',fam:'html'},2:{name:'Build with AI',fam:'ai'}};
 const lessons=[
-{title:'Start with an idea',session:1,source:'What_will_your_website_look_like',intro:'Your first page needs a purpose, not a perfect design. Choose yourself, a hobby, or an imaginary person as your subject.',learn:'A website is a set of files a browser displays. HTML describes the content; CSS controls its appearance. In this workspace, both are ready for you to edit.',tasks:['Choose what your page is about and who will read it.','Write one thing you want your visitor to learn.','Sketch three sections on paper: introduction, interests, and a project or goal.'],hint:'“A page about drawing, for friends who want to try it” is enough. Use a nickname or fictional name. You do not need a photo, school name, or contact details.',fields:[['topic','My website is about'],['audience','My visitors are'],['purpose','I want them to learn']],question:'Which language describes headings and paragraphs?',options:['HTML','CSS'],answer:0,explain:'HTML describes the content and its structure. CSS changes how that content looks.'},
-{title:'Make it your page',session:1,source:'Creating_the_content',intro:'The words between the tags are yours to change. Start with a heading and a short introduction.',learn:'An element often has an opening tag, content, and a closing tag. In <h1>Hello!</h1>, h1 marks the main heading. A paragraph uses p. Headings describe structure, not just text size.',snippet:'<h1>A page about drawing</h1>\n<p>I enjoy turning everyday things into sketches.</p>',tasks:['In HTML, replace “My first website” with your title.','Replace the introduction with two sentences. Keep the opening and closing tags.','Press Run preview. Point to the code responsible for each change.'],hint:'Keep the angle brackets and the slash in </h1>. Our editor contains the visible body of your page; the download adds <!doctype html>, html, head, title, and body around it.',question:'What does the slash in </p> mean?',options:['Start a new page','Close the paragraph'],answer:1,explain:'The closing tag ends the paragraph element.'},
-{title:'Give it some structure',session:1,source:'Creating_the_content',intro:'Group related ideas so a visitor can find their way through your page.',learn:'Use h2 for section headings. A ul groups an unordered list, with one li for each item. A section groups a topic; give it a heading that says what is inside.',snippet:'<section>\n  <h2>Something I want to build</h2>\n  <p>A gallery of my favorite sketches.</p>\n</section>',tasks:['Replace all three interests in the list.','Before </main>, add a new section with an h2 and a paragraph about a project or goal.','Run the preview and explain why you used a heading and a list.'],hint:'Type the example into your HTML, then change its words. Keep each li inside the ul. Close the new section before closing main.',question:'Which element belongs directly inside a ul list?',options:['li','h1'],answer:0,explain:'Each li is one list item. Put the heading before the list.'},
-{title:'Connect & review',session:1,source:'Creating_the_content',intro:'A useful link helps your visitor take a next step. Its words should explain where it goes.',learn:'An anchor element, a, creates a link. The href attribute holds its destination. Attribute values belong in quotes. In a full page, title names the browser tab while h1 is the visible heading.',snippet:'<a href="https://developer.mozilla.org/">\n  Explore MDN web development guides\n</a>',tasks:['Add one link inside your project section. Choose a useful public resource.','Use descriptive words instead of “click here.”','Run Check my code, then show a buddy your page and explain one HTML element.'],hint:'Links are deliberately inactive in this preview so you do not lose your work. Download your website, open it in a browser, and click the link there to test the destination.',question:'Where does a link’s destination go?',options:['Inside href="..."','Inside the closing </a> tag'],answer:0,explain:'href holds the address; the words between <a> and </a> are the visible link text.'},
-{title:'Add your visual style',session:2,source:'Styling_the_content',intro:'Your HTML stays the same. CSS gives it a different look.',learn:'A CSS rule selects elements, then assigns property values inside braces. In h1 { color: navy; }, h1 is the selector, color is the property, and navy is the value.',snippet:'h1, h2 {\n  color: navy;\n}\n\nbody {\n  background-color: #edf4fa;\n}',tasks:['Select the CSS tab. Change the heading color.','Change the body background-color, keeping text easy to read.','Run the preview after each edit. Explain selector, property, and value to your buddy.'],hint:'Change existing values instead of pasting the full example. Use color names such as navy or a hex code such as #234a75. Keep the colon, semicolon, and braces.',question:'In color: navy;, which part is the property?',options:['navy','color'],answer:1,explain:'color is the property. navy is the value assigned to it.'},
-{title:'Give the page room',session:2,source:'Styling_the_content',intro:'Good spacing makes your ideas easier to read. Change one value and watch what moves.',learn:'Think of each element as a box. Padding adds room inside it; margin adds space outside it. max-width limits how wide the page grows. Line-height controls the distance between lines of text.',snippet:'section {\n  padding: 24px;\n  margin-bottom: 20px;\n}',tasks:['Change section padding from 16px to 24px.','Try a different margin-bottom and observe the gap between sections.','Switch to Narrow preview. Check that your text fits and stays readable.'],hint:'Spacing values need units, such as px. A fixed width of 900px could overflow a small screen; the starter uses max-width so the page can shrink.',question:'Which property creates space inside a section?',options:['margin','padding'],answer:1,explain:'Padding is inside the box. Margin separates it from other boxes.'},
-{title:'Test it with a buddy',session:2,source:'Styling_the_content',intro:'A website is ready when someone else can use it. Ask a buddy to try yours, then make one improvement.',learn:'An automated check can find some missing pieces. It cannot judge whether your story is clear, the link is useful, or every color is readable. Those need a person.',tasks:['Run Check my code. Read the results rather than just looking for a pass.','Download your website and test its link and keyboard navigation in a browser.','Ask for one specific improvement, make it, and check it again.'],hint:'Use Tab to reach a link, then Enter to open it. If your Mac skips links, enable keyboard navigation in its browser/system settings or ask Xavier for help.',checks:['I can read the text against its background.','The page fits the narrow preview.','I tested the downloaded page’s link and keyboard focus.','I applied one piece of buddy feedback.'],fields:[['improvement','One improvement I made']],question:'Does a passing code check mean the website is finished?',options:['Yes, the computer checks everything','No, people still need to test it'],answer:1,explain:'Code checks cover only part of the job. Readability, clarity, and usefulness need human review.'},
-{title:'Save & share your learning',session:2,source:'',intro:'You built a page from real HTML and CSS. Now show what you understand.',learn:'Download my website saves a complete HTML file with your CSS inside it. Open it locally to view it. A downloaded file is not published online. Hosting and JavaScript can be next steps after this workshop.',tasks:['Download your final website and open the file to confirm it works.','Give a short tour: subject, one code change, and what it does.','Write the next thing you want to learn.'],hint:'Keep your downloaded file somewhere you can find. Browser progress stays on this device and does not travel with that file. Discuss public sharing separately with Xavier and your family.',fields:[['reflection','One thing I can now explain'],['nextGoal','Next I want to learn']],question:'Is your downloaded HTML file already a public website?',options:['Yes','No'],answer:1,explain:'It is a local file. Publishing requires a separate hosting step.'}
+{title:'Plan your website',session:1,tab:'html',source:'What_will_your_website_look_like',
+ intro:'A good website starts with a plan, not code. Choose a subject you care about: yourself, a hobby, or an imaginary person.',
+ learn:'A website is a set of files a browser displays. HTML describes the content, CSS controls how it looks, and JavaScript adds behavior. Before writing any of them, decide who the page is for, why it exists, and what it will say.',
+ tasks:['Choose your audience: who will visit your page?','Write its purpose in one sentence: what should visitors learn or do?','Sketch your content on paper: an introduction, your interests, and a project or gallery.'],
+ hint:'“A page about drawing, for friends who want to try it” is enough. Use a nickname or fictional name. You do not need a photo of yourself, your school name, or contact details.',
+ fields:[['audience','My visitors are'],['purpose','My page helps them'],['content','My three sections will be']],
+ question:'Which language describes headings and paragraphs?',options:['HTML','CSS','JavaScript'],answer:0,
+ explain:'HTML describes content and structure. CSS changes how it looks, and JavaScript adds behavior.'},
+{title:'Headings, paragraphs & lists',session:1,tab:'html',source:'Creating_the_content',
+ intro:'The words between the tags are yours. Start with a heading, an introduction, and a list.',
+ learn:'An element usually has an opening tag, content, and a closing tag. In <h1>Hello!</h1>, h1 marks the main heading. Use one h1 for the page title, h2 for section headings, p for paragraphs, and a ul with one li for each list item. Headings describe structure, not just text size.',
+ snippet:'<h1>A page about drawing</h1>\n<p>I enjoy turning everyday things into sketches.</p>\n<ul>\n  <li>Pencil portraits</li>\n  <li>Comic strips</li>\n</ul>',
+ tasks:['Replace “My first website” with your own title.','Rewrite the introduction in two sentences. Keep the opening and closing tags.','Replace the three list items, press Run preview, and point to the code behind each change.'],
+ hint:'Keep the angle brackets and the slash in </h1>. The editor holds the visible body of your page; the download adds <!doctype html>, head, title, and body around it.',
+ question:'Which element belongs directly inside a ul list?',options:['li','p'],answer:0,
+ explain:'Each li is one list item. Put headings and paragraphs outside the list.'},
+{title:'Links, images & sections',session:1,tab:'html',source:'Creating_the_content',
+ intro:'Group related content into sections, then add a link and an image that help your visitor.',
+ learn:'A section groups one topic and starts with an h2. An anchor, a, creates a link: its href holds the destination. An img shows a picture: src holds the image address and alt describes it for people who cannot see it. img has no closing tag.',
+ snippet:'<section>\n  <h2>My project</h2>\n  <p>A gallery of my favorite sketches.</p>\n  <img src="https://picsum.photos/400/240" alt="A sample landscape photo">\n  <a href="https://developer.mozilla.org/">Explore MDN web guides</a>\n</section>',
+ tasks:['Before </main>, add a section with an h2 and a paragraph about a project or goal.','Add one image with an alt description that says what it shows.','Add one link with descriptive words instead of “click here.”'],
+ hint:'Only use images you have permission to use; picsum.photos gives free sample photos for practice. Links are inactive in the preview so you do not lose your work. Test them in your downloaded page.',
+ question:'What is an image’s alt text for?',options:['Describing it for people who cannot see it','Making it load faster'],answer:0,
+ explain:'alt describes the image for screen readers, and it appears if the image cannot load.'},
+{title:'Style with CSS',session:1,tab:'css',source:'Styling_the_content',
+ intro:'Your HTML stays the same. A separate stylesheet changes how the page looks.',
+ learn:'CSS lives in its own file, style.css, connected to the page by <link rel="stylesheet" href="style.css"> in the head. A rule selects elements, then sets properties: in h1 { color: navy; }, h1 is the selector, color is the property, and navy is the value. Padding adds room inside a box; margin adds space outside it.',
+ snippet:'body {\n  font-family: Georgia, serif;\n  background-color: #edf4fa;\n}\n\nh1, h2 {\n  color: navy;\n}\n\nsection {\n  padding: 24px;\n  margin-bottom: 20px;\n}',
+ tasks:['Open the CSS tab. Change the heading color and the body background-color.','Choose a font-family that suits your subject.','Change section padding and margin-bottom, run the preview, and explain what moved.'],
+ hint:'Change existing values instead of pasting everything. Spacing needs units, such as px. Download my website saves your CSS as style.css and links it from your page, just like a real website.',
+ question:'In color: navy;, which part is the property?',options:['navy','color'],answer:1,
+ explain:'color is the property. navy is the value assigned to it.'},
+{title:'Meet JavaScript',session:1,tab:'js',source:'Adding_interactivity',
+ intro:'HTML is the content, CSS is the look, and JavaScript is the behavior: what happens when someone clicks, types, or scrolls.',
+ learn:'JavaScript finds an element, then listens for an event. document.querySelector("h1") finds the first h1. addEventListener("click", …) runs code each time it is clicked. classList.toggle("fun") adds a class when it is missing and removes it when it is there, so your CSS can change the look.',
+ snippet:'const title = document.querySelector("h1");\n\ntitle.addEventListener("click", () => {\n  title.classList.toggle("fun");\n});\n\n/* Then add this in the CSS tab: */\n.fun { color: tomato; }',
+ tasks:['Open the JS tab and type the three JavaScript lines. Add the .fun rule in the CSS tab.','Run the preview and click your heading. Click it again.','Explain to your buddy which line finds, which line listens, and which line changes.'],
+ hint:'JavaScript is case-sensitive: querySelector, not queryselector. If something goes wrong, the note under the editor shows the error and its line. Scripts run only inside the preview, and the preview cannot reach the internet.',
+ question:'What does addEventListener do?',options:['Waits for an event, such as a click, then runs code','Changes the color of the page'],answer:0,
+ explain:'It connects an event, such as a click, to the code that should run when it happens.'},
+{title:'Usable on every screen',session:1,tab:'css',source:'Styling_the_content',
+ intro:'A website is ready when people can read it and find their way, on a laptop or a phone.',
+ learn:'Readable text needs strong contrast and enough line-height. Clear navigation needs headings and links that say where they lead. max-width stops lines from growing too long, and a @media rule changes styles on small screens. An automated check finds some problems; a person finds the rest.',
+ snippet:'body {\n  max-width: 720px;\n  margin: 0 auto;\n  line-height: 1.6;\n}\n\n@media (max-width: 500px) {\n  h1 {\n    font-size: 28px;\n  }\n}',
+ tasks:['Switch to Narrow preview. Fix anything that is too wide or hard to read.','Run Check my code and read every result, not just the passes.','Ask your buddy to find one thing that is unclear, then fix it and test again.'],
+ hint:'Use Tab to move between links and Enter to open one. A fixed width such as 900px can overflow a phone; max-width lets the page shrink.',
+ checks:['I can read the text against its background.','My page fits the narrow preview.','My headings and links say where they lead.','I fixed one problem my buddy found.'],
+ question:'Does a passing code check mean the website is finished?',options:['Yes, the computer checks everything','No, people still need to test it'],answer:1,
+ explain:'Code checks cover only part of the job. Readability, clarity, and usefulness need human review.'},
+{title:'How AI can help',session:2,tab:'html',source:'',
+ intro:'AI tools can suggest designs, write code, and explain errors. You stay the designer: you decide what to keep.',
+ learn:'An AI assistant predicts a helpful answer from your description. It is good at ideas, examples, and spotting mistakes. It can also be wrong, sound overconfident, or rewrite more than you asked. Use it for design ideas, code examples, and debugging, and always test and understand what it gives you. Use only tools approved for you, and never share personal details.',
+ tasks:['List one design, one coding, and one debugging question you could ask an AI.','Open Ask AI for a hint and read the example prompt.','Write one rule for yourself, such as “I only keep code I can explain.”'],
+ hint:'Xavier will demonstrate an approved AI tool. This workspace does not connect to AI; nothing you type here is sent anywhere.',
+ fields:[['aiRule','My rule for using AI']],
+ question:'An AI gives you code that works, but you do not understand it. What should you do?',options:['Paste it and move on','Ask it to explain, then test it and explain it yourself'],answer:1,
+ explain:'Only keep code you can explain. Ask follow-up questions until you can.'},
+{title:'Write a useful prompt',session:2,tab:'html',source:'',
+ intro:'A vague prompt gets a vague answer. Describe your page like a designer briefing a teammate.',
+ learn:'A useful prompt names four things: your audience, the style you want, the feature you need, and your constraints, such as “HTML and CSS only” or “change one thing at a time.” Include a small piece of your code, and ask for an explanation, not just an answer.',
+ snippet:'My website is about drawing, for classmates who want to try it.\nStyle: friendly and clean, with one bright accent color.\nFeature: make my project section easier to scan.\nConstraints: HTML and CSS only. Change one thing at a time\nand explain each change. Here is my CSS: [paste a small part]',
+ tasks:['Write your own prompt with audience, style, feature, and constraints.','Swap prompts with your buddy. Is anything missing or unclear?','Improve your prompt once, then save it in the box below.'],
+ hint:'Leave out personal details: no full name, school, address, or photos of yourself. Be specific about what you want and what must not change.',
+ fields:[['prompt','My prompt']],
+ question:'Which part of a prompt stops the AI from rewriting your whole website?',options:['Constraints','Audience'],answer:0,
+ explain:'Constraints set the limits, such as “change one thing at a time.”'},
+{title:'Professional design',session:2,tab:'css',source:'Styling_the_content',
+ intro:'Professional pages feel calm because they follow a few consistent rules.',
+ learn:'Visual hierarchy makes the most important thing the biggest and boldest. A type scale uses a few related sizes, not many random ones. A consistent palette uses one main color, one accent, and readable neutrals, stored as CSS variables. display: flex lays items out in a row that can wrap on small screens.',
+ snippet:':root {\n  --main: #1f3a93;\n  --accent: #ff7a00;\n}\n\nh1 { font-size: 40px; color: var(--main); }\nh2 { font-size: 24px; color: var(--main); }\n\nul {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 12px;\n}',
+ tasks:['Ask an AI (or Xavier) for one design improvement. Decide if it fits your audience.','Define two color variables and use them instead of repeated color values.','Pick three font sizes, then check your page in Wide and Narrow preview.'],
+ hint:'Change one thing, run the preview, and compare. If a suggestion makes text harder to read, undo it.',
+ question:'What creates visual hierarchy?',options:['Making every heading the same size','Making the most important content stand out most'],answer:1,
+ explain:'Hierarchy guides the eye: size, weight, and color show what matters first.'},
+{title:'Add an interaction',session:2,tab:'js',source:'Adding_interactivity',
+ intro:'Add one feature that helps your visitor, not just one that moves.',
+ learn:'Choose one: expandable project details, a small gallery, or a theme switch. A details element with a summary expands without any JavaScript. A theme switch is a button whose click toggles a class on the body; CSS does the rest. Keep the feature useful, keyboard-friendly, and easy to explain.',
+ snippet:'<\!-- HTML -->\n<button id="theme">Switch theme</button>\n\n/* CSS */\n.dark { background: #1c2333; color: white; }\n\n// JavaScript\ndocument.querySelector("#theme")\n  .addEventListener("click", () => {\n    document.body.classList.toggle("dark");\n  });',
+ tasks:['Choose one feature: expandable details, a gallery, or a theme switch.','Build it, using your prompt for help, with the HTML, CSS, and JavaScript it needs.','Test it with the mouse and with the keyboard: Tab to it, then press Enter or Space.'],
+ hint:'Use a button element for anything people click; it works with the keyboard for free. If nothing happens, read the error note under the editor and check that your id and class names match.',
+ question:'Why use a <button> for a theme switch?',options:['It works with the keyboard and screen readers','It is the only element JavaScript can find'],answer:0,
+ explain:'Buttons can be reached with Tab and pressed with Enter or Space, and screen readers announce them.'},
+{title:'Iterate & compare',session:2,tab:'html',source:'',
+ intro:'Improving with AI is a loop: ask, review, change one thing, compare.',
+ learn:'Read each AI suggestion before you use it. Ask: does it fit my audience, do I understand it, and does it change only what I asked? Make one focused change, run the preview, and compare it with before. Keep a short log so you can explain what improved and why.',
+ tasks:['Ask for one improvement and write the suggestion in your own words.','Apply only the part you understand. Run the preview and compare.','Keep it or undo it, and record why below.'],
+ hint:'Before a big change, use Download my website so you can go back. If a suggestion breaks something, undo it and ask the AI to explain the error.',
+ fields:[['change','One change I made'],['why','Why I kept or undid it']],
+ question:'What is a focused change?',options:['Rewriting the whole page at once','Changing one thing, then testing it'],answer:1,
+ explain:'Small changes are easy to test, compare, and undo.'},
+{title:'Test & showcase',session:2,tab:'html',source:'',
+ intro:'Show what you built and, more importantly, what you learned.',
+ learn:'Test your page like a visitor: on a narrow screen, with the keyboard, and with a buddy. Download my website saves three files: my-website.html, style.css, and script.js. Keep them in one folder and open the HTML file to view your site. A downloaded file is not online yet; publishing is a separate step.',
+ tasks:['Run Check my code and fix one problem it or your buddy finds.','Download your website and open it to confirm everything works.','Give a short tour: your audience, one AI-assisted improvement, and your interaction.'],
+ hint:'Your browser may ask permission to download several files; allow it. Progress in this workspace stays on this browser. Discuss public sharing with Xavier and your family.',
+ checks:['My page works in the narrow preview.','My interaction works with the keyboard.','I can explain every line I got from AI.','I downloaded my files and opened them.'],
+ fields:[['reflection','One thing I can now explain'],['nextGoal','Next I want to learn']],
+ question:'Is your downloaded website already public?',options:['Yes','No'],answer:1,
+ explain:'It is a set of local files. Publishing requires a separate hosting step.'}
 ];
-// Periodic Table of the Web: the elements and properties each lesson adds to a student's table.
+
+// Periodic Table of the Web: the ideas, elements, and properties each lesson adds to a student's table.
+const families={html:'HTML structure',css:'CSS style',js:'JavaScript behavior',ai:'AI skills',plan:'Plan & test'};
 const elements=[
- [0,'Pl','plan','plan','Your page’s purpose'],
- [0,'Ht','HTML','html','Describes the content'],
- [0,'Cs','CSS','css','Controls the look'],
+ [0,'Au','audience','plan','Who will visit'],
+ [0,'Pu','purpose','plan','Why it exists'],
+ [0,'Ct','content','plan','What it will say'],
  [1,'H1','<h1>','html','Main heading'],
  [1,'P','<p>','html','Paragraph'],
- [2,'H2','<h2>','html','Section heading'],
- [2,'Ul','<ul>','html','Unordered list'],
- [2,'Li','<li>','html','One list item'],
+ [1,'Ul','<ul>','html','Unordered list'],
+ [1,'Li','<li>','html','One list item'],
  [2,'Sc','<section>','html','Groups a topic'],
- [3,'A','<a>','html','Creates a link'],
- [3,'Hf','href','html','Link destination'],
- [3,'Ti','<title>','html','Names the browser tab'],
- [4,'Co','color','css','Text color'],
- [4,'Bg','background-color','css','Fills behind content'],
- [5,'Pd','padding','css','Room inside a box'],
- [5,'Mg','margin','css','Space outside a box'],
+ [2,'A','<a>','html','Creates a link'],
+ [2,'Im','<img>','html','Shows an image'],
+ [2,'Al','alt','html','Describes an image'],
+ [3,'Ln','<link>','html','Connects style.css'],
+ [3,'Co','color','css','Text color'],
+ [3,'Ff','font-family','css','Sets the typeface'],
+ [3,'Pd','padding','css','Room inside a box'],
+ [4,'Qs','querySelector','js','Finds an element'],
+ [4,'Ev','addEventListener','js','Waits for an event'],
+ [4,'Cl','classList','js','Adds or removes a class'],
  [5,'Mw','max-width','css','Limits how wide it grows'],
- [5,'Lh','line-height','css','Space between lines'],
- [6,'Ck','code check','plan','Finds missing pieces'],
- [6,'Bu','buddy test','plan','A person tries it'],
- [7,'Sv','.html file','plan','Your page, saved']
+ [5,'Mq','@media','css','Styles for screen sizes'],
+ [5,'Ts','test','plan','A person tries it'],
+ [6,'Ds','design help','ai','Ideas for the look'],
+ [6,'Cd','code help','ai','Examples to learn from'],
+ [6,'Db','debug help','ai','Explains errors'],
+ [7,'Pr','prompt','ai','Your request'],
+ [7,'St','style','ai','The look you want'],
+ [7,'Ft','feature','ai','What it should do'],
+ [7,'Cn','constraints','ai','Limits and rules'],
+ [8,'Hi','hierarchy','css','What stands out first'],
+ [8,'Va','var(--name)','css','Reusable values'],
+ [8,'Fx','display: flex','css','Lays items in a row'],
+ [9,'Dt','<details>','html','Expands when opened'],
+ [9,'Bt','<button>','html','Something to press'],
+ [9,'Tg','toggle','js','Switches a class on and off'],
+ [10,'It','iterate','ai','Ask, review, change'],
+ [10,'Cp','compare','ai','Before and after'],
+ [10,'Lg','log','ai','What changed and why'],
+ [11,'Ky','keyboard','plan','Tab, Enter, Space'],
+ [11,'Sv','save','plan','Your files, downloaded'],
+ [11,'Sh','showcase','plan','Explain what improved']
 ].map(([lesson,sym,name,fam,def],i)=>({n:i+1,lesson,sym,name,fam,def}));
+const codeName=e=>e.fam==='html'||e.fam==='css'||e.fam==='js';
+
 const icon=(name,cls='')=>`<svg class="i ${cls}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const key='xavier-first-website-v1';
-const fresh=()=>({html:originalHTML,css:originalCSS,current:0,done:[],answers:{},notes:{},checks:[]});
-let state=fresh(),storageOK=true,tableFocus=0;
-try{const saved=JSON.parse(localStorage.getItem(key));if(saved&&typeof saved.html==='string'&&typeof saved.css==='string'&&Number.isInteger(saved.current)&&saved.current>=0&&saved.current<lessons.length&&Array.isArray(saved.done)&&saved.answers&&typeof saved.answers==='object'&&saved.notes&&typeof saved.notes==='object'&&Array.isArray(saved.checks))state=saved;}catch{storageOK=false;}
+const key='xavier-first-website-v2',oldKey='xavier-first-website-v1';
+const fresh=()=>({html:originalHTML,css:originalCSS,js:originalJS,current:0,done:[],answers:{},notes:{},checks:[]});
+let state=fresh(),storageOK=true,tableFocus=0,currentTab='html';
+try{
+ const saved=JSON.parse(localStorage.getItem(key));
+ if(saved&&typeof saved.html==='string'&&typeof saved.css==='string'&&typeof saved.js==='string'&&Number.isInteger(saved.current)&&saved.current>=0&&saved.current<lessons.length&&Array.isArray(saved.done)&&saved.answers&&typeof saved.answers==='object'&&saved.notes&&typeof saved.notes==='object'&&Array.isArray(saved.checks))state=saved;
+ else{
+  // Keep a student's code from the earlier version of the workshop; lesson progress starts fresh.
+  const old=JSON.parse(localStorage.getItem(oldKey));
+  if(old&&typeof old.html==='string'&&typeof old.css==='string'){state.html=old.html;state.css=old.css;}
+ }
+}catch{storageOK=false;}
 function save(){try{localStorage.setItem(key,JSON.stringify(state));storageOK=true;$('save-status').textContent='Saved in this browser';$('save-status').dataset.state='ok';}catch{storageOK=false;$('save-status').textContent='Browser saving unavailable — download your work';$('save-status').dataset.state='error';}}
+
 function nav(justFilled=-1){
- $('lesson-nav').innerHTML=[1,2].map(session=>`<p class="group-label"><span class="swatch fam-${session===1?'html':'css'}" aria-hidden="true"></span>Session ${session} · ${session===1?'HTML':'CSS'}</p>`+lessons.map((l,i)=>l.session!==session?'':`<button class="lesson-link ${state.done.includes(i)?'done':''}" data-lesson="${i}" ${i===state.current?'aria-current="step"':''}><span class="step-dot" aria-hidden="true">${i+1}</span><span>${esc(l.title)}${state.done.includes(i)?'<span class="sr-only"> · done</span>':''}</span>${state.done.includes(i)?icon('check','done-mark'):''}</button>`).join('')).join('');
+ $('lesson-nav').innerHTML=[1,2].map(session=>`<p class="group-label"><span class="swatch fam-${sessions[session].fam}" aria-hidden="true"></span>Session ${session} · ${sessions[session].name}</p>`+lessons.map((l,i)=>l.session!==session?'':`<button class="lesson-link ${state.done.includes(i)?'done':''}" data-lesson="${i}" ${i===state.current?'aria-current="step"':''}><span class="step-dot" aria-hidden="true">${i+1}</span><span>${esc(l.title)}${state.done.includes(i)?'<span class="sr-only"> · done</span>':''}</span>${state.done.includes(i)?icon('check','done-mark'):''}</button>`).join('')).join('');
  $('ptable').innerHTML=lessons.map((l,i)=>`<li class="pt-col${i===state.current?' is-current':''}"><span class="pt-group" aria-hidden="true">${i+1}</span><ul class="pt-tiles" aria-label="Lesson ${i+1}">${elements.filter(e=>e.lesson===i).map((e,k)=>`<li class="pt-tile fam-${e.fam}${state.done.includes(i)?' is-filled':''}${justFilled===i?' just-filled':''}" style="--k:${k}" tabindex="${e.n-1===tableFocus?0:-1}" data-tip="${esc(e.name)} · ${esc(e.def)}"><span aria-hidden="true">${esc(e.sym)}</span><span class="sr-only">${esc(e.name)}: ${esc(e.def)}${state.done.includes(i)?', collected':', not collected yet'}</span></li>`).join('')}</ul></li>`).join('');
  $('element-count').textContent=`${elements.filter(e=>state.done.includes(e.lesson)).length} of ${elements.length} elements`;
- $('progress').value=state.done.length;$('progress-label').textContent=`${state.done.length} of ${lessons.length} lessons complete`;
+ $('progress').max=lessons.length;$('progress').value=state.done.length;$('progress-label').textContent=`${state.done.length} of ${lessons.length} lessons complete`;
 }
 function render(focus=false){
- const l=lessons[state.current];nav();const ans=state.answers[state.current],quizClass=ans===undefined?'':ans===l.answer?'is-ok':'is-retry';$('session-label').textContent=`Session ${l.session}`;$('session-label').className=`session-chip fam-${l.session===1?'html':'css'}`;$('lesson-elements').innerHTML=elements.filter(e=>e.lesson===state.current).map((e,k)=>`<li style="--k:${k}" class="tile fam-${e.fam}${state.done.includes(state.current)?' is-collected':''}"><span class="tile-n" aria-hidden="true">${e.n}</span>${icon('check','tile-check')}<span class="tile-sym" aria-hidden="true">${esc(e.sym)}</span><code class="tile-name">${esc(e.name).replace(/-/g,'-<wbr>')}</code><span class="tile-def">${esc(e.def)}</span></li>`).join('');$('lesson-count').textContent=`Lesson ${state.current+1} of ${lessons.length}`;$('lesson-title').textContent=l.title;
- $('lesson-body').innerHTML=`<p class="intro">${esc(l.intro)}</p><h3>The idea</h3><p>${esc(l.learn)}</p>${l.snippet?`<pre class="snippet"><code>${esc(l.snippet)}</code></pre>`:''}<h3>Your turn</h3><ol class="task-list">${l.tasks.map(t=>`<li>${esc(t)}</li>`).join('')}</ol>${(l.fields||[]).map(([id,label])=>`<label class="field-label" for="${id}">${esc(label)}</label><input type="text" id="${id}" data-note="${id}" value="${esc(state.notes[id]||'')}" maxlength="500">`).join('')}${l.checks?`<div class="checklist">${l.checks.map((c,i)=>`<label><input type="checkbox" data-check="${i}" ${state.checks.includes(i)?'checked':''}>${esc(c)}</label>`).join('')}</div>`:''}<details><summary>${icon('chevron')}Need a hint?</summary><p class="hint">${esc(l.hint)}</p></details><details ${state.answers[state.current]!==undefined?'open':''}><summary>${icon('chevron')}Quick understanding check</summary><p>${esc(l.question)}</p><div class="utility">${l.options.map((o,i)=>`<button data-answer="${i}" aria-pressed="${state.answers[state.current]===i}">${esc(o)}</button>`).join('')}</div><p id="quiz-result" role="status" class="hint quiz-result ${quizClass}">${state.answers[state.current]===undefined?'':state.answers[state.current]===l.answer?'Correct. '+esc(l.explain):'Try again. '+esc(l.explain)}</p></details>`;
- $('source').innerHTML=`Learning source: <a href="${base+(l.source?'/'+l.source:'')}" target="_blank" rel="noopener">MDN ${l.source==='Styling_the_content'?'CSS guide':l.source==='Creating_the_content'?'HTML guide':l.source?'planning guide':'beginner guide'}${icon('external')}<span class="sr-only"> (opens in a new tab)</span></a>. Original workshop exercises; not an MDN course or endorsement.`;
+ const l=lessons[state.current];nav();
+ const ans=state.answers[state.current],quizClass=ans===undefined?'':ans===l.answer?'is-ok':'is-retry';
+ $('session-label').textContent=`Session ${l.session} · ${sessions[l.session].name}`;$('session-label').className=`session-chip fam-${sessions[l.session].fam}`;
+ $('lesson-elements').innerHTML=elements.filter(e=>e.lesson===state.current).map((e,k)=>`<li style="--k:${k}" class="tile fam-${e.fam}${state.done.includes(state.current)?' is-collected':''}"><span class="tile-n" aria-hidden="true">${e.n}</span>${icon('check','tile-check')}<span class="tile-sym" aria-hidden="true">${esc(e.sym)}</span>${codeName(e)?`<code class="tile-name">${esc(e.name).replace(/-/g,'-<wbr>').replace(/([a-z])([A-Z])/g,'$1<wbr>$2')}</code>`:`<span class="tile-name">${esc(e.name)}</span>`}<span class="tile-def">${esc(e.def)}</span></li>`).join('');
+ $('lesson-count').textContent=`Lesson ${state.current+1} of ${lessons.length}`;$('lesson-title').textContent=l.title;
+ $('lesson-body').innerHTML=`<p class="intro">${esc(l.intro)}</p><h3>The idea</h3><p>${esc(l.learn)}</p>${l.snippet?`<pre class="snippet"><code>${esc(l.snippet)}</code></pre>`:''}<h3>Your turn</h3><ol class="task-list">${l.tasks.map(t=>`<li>${esc(t)}</li>`).join('')}</ol>${(l.fields||[]).map(([id,label])=>`<label class="field-label" for="${id}">${esc(label)}</label><input type="text" id="${id}" data-note="${id}" value="${esc(state.notes[id]||'')}" maxlength="500">`).join('')}${l.checks?`<div class="checklist">${l.checks.map((c,i)=>{const k=state.current*10+i;return `<label><input type="checkbox" data-check="${k}" ${state.checks.includes(k)?'checked':''}>${esc(c)}</label>`;}).join('')}</div>`:''}<details><summary>${icon('chevron')}Need a hint?</summary><p class="hint">${esc(l.hint)}</p></details><details ${ans!==undefined?'open':''}><summary>${icon('chevron')}Quick understanding check</summary><p>${esc(l.question)}</p><div class="utility">${l.options.map((o,i)=>`<button data-answer="${i}" aria-pressed="${ans===i}">${esc(o)}</button>`).join('')}</div><p id="quiz-result" role="status" class="hint quiz-result ${quizClass}">${ans===undefined?'':ans===l.answer?'Correct. '+esc(l.explain):'Try again. '+esc(l.explain)}</p></details>`;
+ const label=l.source==='Styling_the_content'?'CSS guide':l.source==='Creating_the_content'?'HTML guide':l.source==='Adding_interactivity'?'JavaScript guide':l.source?'planning guide':'beginner guide';
+ $('source').innerHTML=`<span>Learning source: <a href="${base+(l.source?'/'+l.source:'')}" target="_blank" rel="noopener">MDN ${label}${icon('external')}<span class="sr-only"> (opens in a new tab)</span></a>. Original workshop exercises; not an MDN course or endorsement.</span><span class="try-it">Try your code: <a href="../playground/index.html" target="_blank" rel="noopener">open the code playground${icon('external')}<span class="sr-only"> (opens in a new tab)</span></a> and choose “Use my workshop code”.</span>`;
  $('previous').disabled=state.current===0;$('next').disabled=state.current===lessons.length-1;syncComplete();$('feedback').textContent='';if(focus)$('lesson-title').focus();
 }
 function syncComplete(){const done=state.done.includes(state.current);$('complete-label').textContent=done?'Undo completion':'Mark complete';$('complete').classList.toggle('is-done',done);}
-function switchCode(type){for(const t of ['html','css']){$(t+'-code').hidden=t!==type;$(t+'-tab').setAttribute('aria-pressed',String(t===type));}$('code-note').textContent=type==='html'?'HTML gives your page structure.':'CSS changes how your page looks.';}
-function pageDocument(preview=false){
+const notes={html:'HTML gives your page structure.',css:'CSS changes how your page looks.',js:'JavaScript adds behavior to your page.'};
+function switchCode(type){currentTab=type;for(const t of ['html','css','js']){$(t+'-code').hidden=t!==type;$(t+'-tab').setAttribute('aria-pressed',String(t===type));}$('code-note').textContent=notes[type];$('code-note').classList.remove('is-error');}
+
+// Builds the student's page. Preview: one self-contained document for the sandboxed iframe.
+// Download: my-website.html that links style.css and script.js, like a real website.
+function pageParts(preview){
  const doc=new DOMParser().parseFromString(state.html,'text/html');
- // HTML/CSS workshop: remove active content from preview and exported student pages.
+ // Scripts belong in the JS tab; remove other active or external content from the HTML.
  doc.querySelectorAll('script,iframe,object,embed,base,meta,link,style,form').forEach(el=>el.remove());
  doc.querySelectorAll('*').forEach(el=>{for(const attr of [...el.attributes]){if(/^on/i.test(attr.name)||attr.name==='srcdoc'||(/^(href|src|action|xlink:href)$/i.test(attr.name)&&!/^https?:|^#|^data:image\/(png|jpeg|gif|webp);/i.test(attr.value)))el.removeAttribute(attr.name);}});
- const heading=doc.querySelector('h1')?.textContent||'My first website';
- const policy=preview?`<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:;">`:'';
  if(preview)doc.querySelectorAll('a').forEach(a=>a.removeAttribute('href'));
- const css=state.css.replace(/<\/style/gi,'<\\/style');
- return `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n${policy}<title>${esc(heading)}</title>\n<style>\n${css}\n</style>\n</head>\n<body>\n${doc.body.innerHTML}\n</body>\n</html>`;
+ return {body:doc.body.innerHTML,heading:doc.querySelector('h1')?.textContent||'My first website'};
 }
-function run(){ $('preview').srcdoc=pageDocument(true);$('preview-status').textContent='Preview up to date';$('preview-status').dataset.state='fresh'; }
+const hasJS=()=>state.js.replace(/\/\/.*$/gm,'').replace(/\/\*[\s\S]*?\*\//g,'').trim().length>0;
+function previewDocument(){
+ const {body,heading}=pageParts(true);
+ const css=state.css.replace(/<\/style/gi,'<\\/style'),js=state.js.replace(/<\/script/gi,'<\\/script');
+ const head=`<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data: https:;">\n<title>${esc(heading)}</title>\n<style>\n${css}\n</style>\n<scr${''}ipt>window.onerror=function(m,s,l){parent.postMessage({workshopError:String(m),line:l},'*');};<\/script>\n</head>\n<body>\n${body}\n`;
+ const before=head+'<scr'+'ipt>\n';
+ return {doc:before+(hasJS()?js:'')+'\n<\/script>\n</body>\n</html>',offset:before.split('\n').length-1};
+}
+function downloadFiles(){
+ const {body,heading}=pageParts(false),js=hasJS();
+ const html=`<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>${esc(heading)}</title>\n<link rel="stylesheet" href="style.css">\n</head>\n<body>\n${body}\n${js?'<scr'+'ipt src="script.js"><\/script>\n':''}</body>\n</html>\n`;
+ return [['my-website.html',html,'text/html'],['style.css',state.css+'\n','text/css'],...(js?[['script.js',state.js+'\n','text/javascript']]:[])];
+}
+let jsOffset=0;
+function run(){const p=previewDocument();jsOffset=p.offset;$('preview').srcdoc=p.doc;$('preview-status').textContent='Preview up to date';$('preview-status').dataset.state='fresh';if(currentTab==='js'){$('code-note').textContent=notes.js;$('code-note').classList.remove('is-error');}}
+window.addEventListener('message',e=>{
+ if(e.source!==$('preview').contentWindow||!e.data||typeof e.data.workshopError!=='string')return;
+ const line=Number(e.data.line)-jsOffset;
+ if(currentTab!=='js')switchCode('js');
+ $('code-note').textContent=`JavaScript error${line>0?` on line ${line}`:''}: ${e.data.workshopError.replace(/^Uncaught /,'')}`;$('code-note').classList.add('is-error');
+});
 function checkCode(){
  const d=new DOMParser().parseFromString(state.html,'text/html');const list=[];
  const record=(ok,yes,no)=>list.push({ok,text:(ok?'Found: ':'Try: ')+(ok?yes:no)});
@@ -231,9 +391,12 @@ function checkCode(){
  record(d.querySelectorAll('ul > li').length>=3&&!/My first interest|My second interest|Something I want to learn/.test(d.body.textContent),'Three personalized list items.','replace the three starter interests inside li elements.');
  record(d.querySelectorAll('section').length>=2&&[...d.querySelectorAll('section')].some(s=>s.querySelector('h2')&&s.querySelector('p')),'An additional section with a heading and paragraph.','add a second section with an h2 and p.');
  record([...d.querySelectorAll('a[href]')].some(a=>/^https?:\/\/\S+$/i.test(a.getAttribute('href'))&&a.textContent.trim().length>3&&!/^click here$/i.test(a.textContent.trim())),'A descriptive web link (test its destination yourself).','add an a element with an https:// address and descriptive text.');
+ const imgs=[...d.querySelectorAll('img')];
+ record(imgs.length>0&&imgs.every(i=>(i.getAttribute('alt')||'').trim().length>2),'Images with alt descriptions.',imgs.length?'give every img an alt that describes it.':'add an img with src and a meaningful alt.');
  let rules=[];try{const sheet=new CSSStyleSheet();sheet.replaceSync(state.css);rules=[...sheet.cssRules];}catch{}
  record(rules.some(r=>r.style?.length),'CSS rules the browser can read.','check CSS braces, selectors, and declarations.');
- $('feedback').innerHTML='<strong>Basic code check</strong><ul>'+list.map(r=>`<li class="${r.ok?'found':'try'}">${icon(r.ok?'check':'alert')}<span>${esc(r.text)}</span></li>`).join('')+'</ul><p>This is not a full HTML/CSS validator. Check your preview and ask a buddy to review it.</p>';
+ if(hasJS()){let ok=true,msg='';try{new Function(state.js);}catch(err){ok=false;msg=err.message;}record(ok,'JavaScript the browser can read (test what it does yourself).',`fix the JavaScript: ${msg}.`);}
+ $('feedback').innerHTML='<strong>Basic code check</strong><ul>'+list.map(r=>`<li class="${r.ok?'found':'try'}">${icon(r.ok?'check':'alert')}<span>${esc(r.text)}</span></li>`).join('')+'</ul><p>This is not a full validator. Check your preview, test with the keyboard, and ask a buddy to review it.</p>';
 }
 function openDialog(title,html){$('dialog-title').textContent=title;$('dialog-body').innerHTML=html;$('help-dialog').showModal();}
 // Your table: one tab stop, arrow keys move between elements (left/right through the table, up/down within a lesson).
@@ -242,23 +405,30 @@ $('ptable').addEventListener('keydown',e=>{const tiles=[...$('ptable').querySele
  else if(e.key==='ArrowDown'||e.key==='ArrowUp'){const col=elements.filter(x=>x.lesson===elements[i].lesson),k=col.indexOf(elements[i])+(e.key==='ArrowDown'?1:-1);if(col[k])j=col[k].n-1;}
  else if(e.key==='Home')j=0;else if(e.key==='End')j=tiles.length-1;else return;
  e.preventDefault();tiles[i].tabIndex=-1;tiles[j].tabIndex=0;tableFocus=j;tiles[j].focus();});
-$('lesson-nav').addEventListener('click',e=>{const b=e.target.closest('[data-lesson]');if(!b)return;state.current=Number(b.dataset.lesson);save();render(true);});
+const goTo=i=>{state.current=i;save();render(true);switchCode(lessons[i].tab);};
+$('lesson-nav').addEventListener('click',e=>{const b=e.target.closest('[data-lesson]');if(b)goTo(Number(b.dataset.lesson));});
 $('lesson-body').addEventListener('input',e=>{if(e.target.dataset.note){state.notes[e.target.dataset.note]=e.target.value;save();}});
 $('lesson-body').addEventListener('change',e=>{if(e.target.dataset.check!==undefined){const n=Number(e.target.dataset.check);state.checks=state.checks.filter(v=>v!==n);if(e.target.checked)state.checks.push(n);save();}});
 $('lesson-body').addEventListener('click',e=>{const b=e.target.closest('[data-answer]');if(!b)return;const l=lessons[state.current],answer=Number(b.dataset.answer);state.answers[state.current]=answer;save();$('quiz-result').textContent=(answer===l.answer?'Correct. ':'Try again. ')+l.explain;$('quiz-result').className='hint quiz-result '+(answer===l.answer?'is-ok':'is-retry');document.querySelectorAll('[data-answer]').forEach(el=>el.setAttribute('aria-pressed',String(Number(el.dataset.answer)===answer)));});
-for(const t of ['html','css']){$(t+'-code').value=state[t];$(t+'-code').addEventListener('input',e=>{state[t]=e.target.value;save();$('preview-status').textContent='Changes ready to run';$('preview-status').dataset.state='stale';});$(t+'-tab').onclick=()=>switchCode(t);}
+for(const t of ['html','css','js']){$(t+'-code').value=state[t];$(t+'-code').addEventListener('input',e=>{state[t]=e.target.value;save();$('preview-status').textContent='Changes ready to run';$('preview-status').dataset.state='stale';});$(t+'-tab').onclick=()=>switchCode(t);}
 $('run').onclick=run;$('check').onclick=checkCode;
-$('previous').onclick=()=>{if(state.current>0){state.current--;save();render(true);}};
-$('next').onclick=()=>{if(state.current<lessons.length-1){state.current++;save();render(true);if(state.current===4)switchCode('css');}};
+$('previous').onclick=()=>{if(state.current>0)goTo(state.current-1);};
+$('next').onclick=()=>{if(state.current<lessons.length-1)goTo(state.current+1);};
 $('complete').onclick=()=>{const i=state.current,adding=!state.done.includes(i);state.done=adding?[...state.done,i]:state.done.filter(x=>x!==i);save();nav(adding?i:-1);syncComplete();document.querySelectorAll('#lesson-elements .tile').forEach(t=>{t.classList.toggle('just-collected',adding);t.classList.toggle('is-collected',adding);});$('feedback').textContent=state.done.includes(i)?'Marked complete by you. Be ready to explain your work to Xavier.':'Completion removed. Keep practicing.';};
 for(const type of ['wide','narrow'])$(type).onclick=()=>{$('preview').classList.toggle('narrow',type==='narrow');$('wide').setAttribute('aria-pressed',String(type==='wide'));$('narrow').setAttribute('aria-pressed',String(type==='narrow'));};
-$('download').onclick=()=>{const blob=new Blob([pageDocument()],{type:'text/html'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='my-first-website.html';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
-$('reset').onclick=()=>{if(!confirm('Reset all your code, lesson notes, and progress in this browser? Download your website first if you want to keep it.'))return;state=fresh();$('html-code').value=state.html;$('css-code').value=state.css;switchCode('html');save();render();run();};
-$('ai-help').onclick=()=>openDialog('Ask for a hint, not a whole website',`<p>No AI account is needed here. Xavier can demonstrate using this prompt, or you can use a tool approved for you.</p><label class="field-label" for="ai-prompt">Select and copy this prompt</label><textarea class="reflection" id="ai-prompt" readonly rows="7">I am learning HTML and CSS. My current lesson is “${esc(lessons[state.current].title)}”. I expected [describe what you wanted], but I see [describe the problem]. Here is the small piece of code: [paste code without personal details]. Give me one hint first, explain why it helps, and ask me to predict the result. Do not rewrite my whole website.</textarea><ol><li>Describe the problem in your own words.</li><li>Predict what the suggestion will change.</li><li>Test it, then explain the result.</li></ol><p class="subtle">This is a prompt helper, not a connected AI chat. Nothing is sent to an AI service by this website.</p>`);
-$('facilitator').onclick=()=>openDialog('Xavier’s session notes',`<p><strong>10 students · grades 7–11 · two sessions.</strong> Each student owns their page. Use five buddy pairs for checks, with helpers explaining rather than taking over.</p><h3>Session 1 · HTML</h3><p>Plan → headings and introduction → lists and sections → links, AI explanation, and review.</p><h3>Session 2 · CSS</h3><p>Color and CSS rules → spacing and narrow preview → buddy testing and one AI debugging example → downloads and showcases.</p><h3>Before class</h3><ul><li>Open this tool on every laptop. Test typing, Run preview, download, and reopening the downloaded file.</li><li>Rehearse one change at a time. Keep demonstrations short and let students build.</li><li>Let students use a nickname, hobby, or fictional profile. No personal photo is required.</li></ul><h3>Check understanding</h3><p>Ask each student to change a heading, explain a CSS rule, and show a tested improvement. Completion marks are self-reported, not test scores. This local tool has no teacher dashboard.</p><h3>If someone finishes early</h3><p>Add another project section, or an internal link using an id. Images are optional later: explain src, meaningful alt text, and permission to use an image. Public publishing and JavaScript are outside these first two sessions.</p><h3>About the learning source</h3><p>Original exercises organized around <a href="${base}" target="_blank" rel="noopener">MDN’s beginner website guide</a>. The guide also covers images, JavaScript, and publishing; this workshop focuses on planning, HTML, and CSS. Instructional copy is a draft for Xavier to review before teaching.</p>`);
+$('download').onclick=()=>{downloadFiles().forEach(([name,text,type],i)=>setTimeout(()=>{const url=URL.createObjectURL(new Blob([text],{type}));const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);},i*400));$('save-status').textContent='Downloading my-website.html, style.css'+(hasJS()?', and script.js':'');};
+$('reset').onclick=()=>{if(!confirm('Reset all your code, lesson notes, and progress in this browser? Download your website first if you want to keep it.'))return;state=fresh();for(const t of ['html','css','js'])$(t+'-code').value=state[t];switchCode('html');save();render();run();};
+$('ai-help').onclick=()=>{const n=state.notes;openDialog('Ask for a hint, not a whole website',`<p>No AI account is needed here. Xavier can demonstrate with this prompt, or you can use a tool approved for you.</p><label class="field-label" for="ai-prompt">Select and copy this prompt</label><textarea class="reflection" id="ai-prompt" readonly rows="9">I am learning HTML, CSS, and JavaScript. My current lesson is “${esc(lessons[state.current].title)}”.
+Audience: ${esc(n.audience||'[who visits my page]')}
+Style: [the look I want]
+Feature: [what I want to improve or add]
+Constraints: change one thing at a time and explain each change. Do not rewrite my whole website.
+I expected [what I wanted], but I see [the problem]. Here is a small piece of my code: [paste code without personal details].
+Give me one hint first, explain why it helps, and ask me to predict the result.</textarea><ol><li>Describe the problem in your own words.</li><li>Predict what the suggestion will change.</li><li>Test it, then explain the result.</li></ol><p class="subtle">This is a prompt helper, not a connected AI chat. Nothing is sent to an AI service by this website.</p>`);};
+$('facilitator').onclick=()=>openDialog('Xavier’s session notes',`<p><strong>10 students · grades 7–11 · two sessions.</strong> Each student owns their page. Use five buddy pairs for checks, with helpers explaining rather than taking over.</p><h3>Session 1 · Website Foundations</h3><p>Plan audience, purpose, and content → headings, paragraphs, and lists → links, images, and sections → CSS in a separate stylesheet → JavaScript’s role → usability on every screen. Outcome: a working page each student can explain and edit.</p><h3>Session 2 · Build with AI</h3><p>How AI helps with design, code, and debugging → writing useful prompts → professional design → one useful interaction → focused iteration → testing and showcase. Outcome: a more polished, interactive page and a repeatable process for improving it with AI.</p><h3>Before class</h3><ul><li>Open this tool on every laptop. Test typing, Run preview, the JS tab, download, and reopening the downloaded files.</li><li>Choose and test the AI tool students may use. This workspace has no AI connection.</li><li>Rehearse one change at a time. Keep demonstrations short and let students build.</li><li>Let students use a nickname, hobby, or fictional profile. No personal photo is required.</li></ul><h3>Check understanding</h3><p>Ask each student to change a heading, explain a CSS rule, explain one line of JavaScript, and show one AI-assisted improvement they understand. Completion marks are self-reported, not test scores. This local tool has no teacher dashboard.</p><h3>If someone finishes early</h3><p>Add a second interaction, a small gallery, or an internal link using an id. Public publishing is outside these two sessions.</p><h3>About the learning source</h3><p>Original exercises organized around <a href="${base}" target="_blank" rel="noopener">MDN’s beginner website guide</a>. Instructional copy is a draft for Xavier to review before teaching.</p>`);
 $('close-dialog').onclick=()=>$('help-dialog').close();
 $('menu-toggle').onclick=()=>{const opened=$('sidebar').classList.toggle('open');$('menu-toggle').setAttribute('aria-expanded',String(opened));};
-render();run();if(!storageOK){$('save-status').textContent='Browser saving unavailable — download your work';$('save-status').dataset.state='error';}
+render();switchCode(lessons[state.current].tab);run();if(!storageOK){$('save-status').textContent='Browser saving unavailable — download your work';$('save-status').dataset.state='error';}
 </script>
 </body>
 </html>
