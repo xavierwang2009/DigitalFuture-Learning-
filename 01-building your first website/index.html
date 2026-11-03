@@ -3,35 +3,116 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>Building Your First Website — Xavier Wang’s Instruction</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.8v12.4a.8.8 0 0 0 1.2.7l9.8-6.2a.8.8 0 0 0 0-1.4L9.2 5.1A.8.8 0 0 0 8 5.8Z"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.8v5M12 16.2v.01"/></symbol>
+  <symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 7l2 2 3.5-3.5M4 16l2 2 3.5-3.5M13 7.5h7M13 16.5h7"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-7l-4.5 3.8V16H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/><path d="M8.5 10.5h7"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 4.5v5h5"/><path d="M4.6 9.5A8 8 0 1 1 4 13"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5h5.5A2.5 2.5 0 0 1 12 8v11a2 2 0 0 0-2-2H4zM20 5.5h-5.5A2.5 2.5 0 0 0 12 8v11a2 2 0 0 1 2-2h6z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></symbol>
+  <symbol id="i-wide" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M8.5 20h7M12 16.5V20"/></symbol>
+  <symbol id="i-narrow" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 17.5h2"/></symbol>
+</svg>
 <a class="skip" href="#lesson-title">Skip to lesson</a>
-<button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="sidebar">Lessons & progress</button>
+<header class="topbar">
+  <div class="brand"><span class="brand-tile" aria-hidden="true"><small>01</small>Wb</span><span class="brand-name">Website workshop</span></div>
+  <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="sidebar"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg>Lessons &amp; progress</button>
+</header>
 <div class="shell">
 <aside class="sidebar" id="sidebar">
-<div class="brand"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="m11 7-8 9 8 9M21 7l8 9-8 9M18 4l-4 24" stroke="currentColor" stroke-width="2"/></svg>Website workshop</div>
-<p>Two sessions. One website.<br>Build something that is yours.</p>
-<nav id="lesson-nav" aria-label="Workshop lessons"></nav>
-<div class="progress-wrap"><p id="progress-label">0 of 8 lessons complete</p><progress id="progress" max="8" value="0" aria-labelledby="progress-label"></progress></div>
-<div class="sidebar-bottom"><button id="facilitator" class="full-width">Xavier’s session notes</button><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website" target="_blank" rel="noopener">MDN beginner guide ↗</a><p>Made for our grades 7–11 workshop. No account needed.</p></div>
+  <div class="brand"><span class="brand-tile" aria-hidden="true"><small>01</small>Wb</span><span class="brand-name">Website workshop</span></div>
+  <p class="tagline">Two sessions. One website.<br>Build something that is yours.</p>
+  <nav id="lesson-nav" aria-label="Workshop lessons"></nav>
+  <section class="ptable-wrap" aria-labelledby="table-title">
+    <div class="ptable-head"><h2 id="table-title">Your table</h2><span id="element-count">0 of 21 elements</span></div>
+    <ul class="ptable" id="ptable" aria-label="Your table, by lesson. Use arrow keys to move between elements."></ul>
+    <ul class="legend" aria-label="Element families">
+      <li><span class="swatch fam-html"></span>HTML structure</li>
+      <li><span class="swatch fam-css"></span>CSS style</li>
+      <li><span class="swatch fam-plan"></span>Plan &amp; test</li>
+    </ul>
+    <div class="progress-wrap"><p id="progress-label">0 of 8 lessons complete</p><progress id="progress" class="sr-only" max="8" value="0" aria-labelledby="progress-label"></progress></div>
+  </section>
+  <div class="sidebar-bottom">
+    <button id="facilitator" class="full-width"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Xavier’s session notes</button>
+    <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website" target="_blank" rel="noopener">MDN beginner guide<svg class="i" aria-hidden="true"><use href="#i-external"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+    <p>Made for our grades 7–11 workshop. No account needed.</p>
+  </div>
 </aside>
 <main>
-<header class="page-header"><div><h1>Building Your First Website</h1><p class="byline">Xavier Wang’s Instruction</p></div><div class="save-area"><button id="download">Download my website ↓</button><br><span id="save-status" role="status">Your work stays in this browser</span></div></header>
-<nav class="workspace-jumps" aria-label="Workspace shortcuts"><a href="#lesson-title">Lesson</a><a href="#html-tab">Code editor</a><a href="#preview">Preview</a></nav>
-<div class="workspace">
-<section class="lesson" aria-labelledby="lesson-title"><div class="lesson-meta"><span id="session-label"></span><span id="lesson-count"></span></div><h2 id="lesson-title" tabindex="-1"></h2><div id="lesson-body"></div><div id="feedback" class="feedback" role="status"></div><div class="lesson-footer"><button id="previous">← Back</button><button id="complete">Mark complete</button><button id="next">Next →</button></div><p id="source" class="source"></p></section>
-<section class="studio" aria-label="Website workspace">
-<div class="panel"><div class="panel-bar"><div class="tabs" role="group" aria-label="Choose code language"><button id="html-tab" aria-pressed="true" aria-controls="html-code">HTML</button><button id="css-tab" aria-pressed="false" aria-controls="css-code">CSS</button></div><button class="primary" id="run">Run preview →</button></div><textarea id="html-code" class="editor" aria-label="HTML code" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea><textarea id="css-code" class="editor" aria-label="CSS code" spellcheck="false" autocapitalize="off" autocomplete="off" hidden></textarea><div class="editor-note"><span id="code-note">HTML gives your page structure.</span><span id="preview-status" aria-live="polite">Preview up to date</span></div></div>
-<div class="panel"><div class="panel-bar"><h3>Your website preview</h3><div class="tabs" role="group" aria-label="Preview width"><button id="wide" aria-pressed="true">Wide</button><button id="narrow" aria-pressed="false">Narrow</button></div></div><div class="preview-well"><iframe id="preview" title="Your website preview" sandbox=""></iframe></div><div class="preview-note">Local preview · HTML & CSS only · links are inactive here</div></div>
-<div class="utility"><button id="check">Check my code</button><button id="ai-help">Ask AI for a hint</button><button id="reset">Reset workspace</button></div>
-<p class="resources">Edit → run → observe → explain.<br>Progress is saved on this browser, not shared with Xavier. Download your page before changing devices or clearing browser data.</p>
-</section>
-</div>
+  <header class="page-header">
+    <div><h1>Building Your First Website</h1><p class="byline">Xavier Wang’s Instruction</p></div>
+    <div class="save-area"><button id="download"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg>Download my website</button><span id="save-status" role="status">Your work stays in this browser</span></div>
+  </header>
+  <nav class="workspace-jumps" aria-label="Workspace shortcuts"><a href="#lesson-title">Lesson</a><a href="#html-tab">Code editor</a><a href="#preview">Preview</a></nav>
+  <div class="workspace">
+    <section class="lesson" aria-labelledby="lesson-title">
+      <h2 id="lesson-title" tabindex="-1"></h2>
+      <p class="lesson-meta"><span id="session-label" class="session-chip"></span><span aria-hidden="true">·</span><span id="lesson-count"></span></p>
+      <ul class="elements" id="lesson-elements" aria-label="Elements in this lesson"></ul>
+      <div id="lesson-body"></div>
+      <div id="feedback" class="feedback" role="status"></div>
+      <div class="lesson-footer">
+        <button id="previous"><svg class="i" aria-hidden="true"><use href="#i-arrow-left"/></svg>Back</button>
+        <button id="complete" class="ink"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span id="complete-label">Mark complete</span></button>
+        <button id="next">Next<svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+      </div>
+      <p id="source" class="source"></p>
+    </section>
+    <section class="studio" aria-label="Website workspace">
+      <div class="panel">
+        <div class="panel-bar">
+          <div class="tabs" role="group" aria-label="Choose code language">
+            <button id="html-tab" aria-pressed="true" aria-controls="html-code"><span class="swatch fam-html" aria-hidden="true"></span>HTML</button>
+            <button id="css-tab" aria-pressed="false" aria-controls="css-code"><span class="swatch fam-css" aria-hidden="true"></span>CSS</button>
+          </div>
+          <button class="primary" id="run"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg>Run preview</button>
+        </div>
+        <textarea id="html-code" class="editor fam-html" aria-label="HTML code" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
+        <textarea id="css-code" class="editor fam-css" aria-label="CSS code" spellcheck="false" autocapitalize="off" autocomplete="off" hidden></textarea>
+        <div class="editor-note"><span id="code-note">HTML gives your page structure.</span><span id="preview-status" aria-live="polite">Preview up to date</span></div>
+      </div>
+      <div class="panel">
+        <div class="panel-bar">
+          <h3>Your website preview</h3>
+          <div class="tabs" role="group" aria-label="Preview width">
+            <button id="wide" aria-pressed="true"><svg class="i" aria-hidden="true"><use href="#i-wide"/></svg>Wide</button>
+            <button id="narrow" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-narrow"/></svg>Narrow</button>
+          </div>
+        </div>
+        <div class="preview-well"><iframe id="preview" title="Your website preview" sandbox=""></iframe></div>
+        <div class="preview-note">Local preview · HTML &amp; CSS only · links are inactive here</div>
+      </div>
+      <div class="utility tools">
+        <button id="check"><svg class="i" aria-hidden="true"><use href="#i-scan"/></svg>Check my code</button>
+        <button id="ai-help"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg>Ask AI for a hint</button>
+        <button id="reset"><svg class="i" aria-hidden="true"><use href="#i-reset"/></svg>Reset workspace</button>
+      </div>
+      <ol class="loop" aria-label="Edit, run, observe, explain">
+        <li>Edit<svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></li>
+        <li>run<svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></li>
+        <li>observe<svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></li>
+        <li>explain.</li>
+      </ol>
+      <p class="resources">Progress is saved on this browser, not shared with Xavier. Download your page before changing devices or clearing browser data.</p>
+    </section>
+  </div>
 </main>
 </div>
-<dialog id="help-dialog"><div class="dialog-head"><h2 id="dialog-title"></h2><button id="close-dialog" aria-label="Close dialog">Close</button></div><div id="dialog-body"></div></dialog>
+<dialog id="help-dialog" aria-labelledby="dialog-title"><div class="dialog-head"><h2 id="dialog-title"></h2><button id="close-dialog" aria-label="Close dialog"><svg class="i" aria-hidden="true"><use href="#i-close"/></svg>Close</button></div><div id="dialog-body"></div></dialog>
 <script>
 const base='https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website';
 const originalHTML=`<header>
@@ -84,23 +165,51 @@ const lessons=[
 {title:'Test it with a buddy',session:2,source:'Styling_the_content',intro:'A website is ready when someone else can use it. Ask a buddy to try yours, then make one improvement.',learn:'An automated check can find some missing pieces. It cannot judge whether your story is clear, the link is useful, or every color is readable. Those need a person.',tasks:['Run Check my code. Read the results rather than just looking for a pass.','Download your website and test its link and keyboard navigation in a browser.','Ask for one specific improvement, make it, and check it again.'],hint:'Use Tab to reach a link, then Enter to open it. If your Mac skips links, enable keyboard navigation in its browser/system settings or ask Xavier for help.',checks:['I can read the text against its background.','The page fits the narrow preview.','I tested the downloaded page’s link and keyboard focus.','I applied one piece of buddy feedback.'],fields:[['improvement','One improvement I made']],question:'Does a passing code check mean the website is finished?',options:['Yes, the computer checks everything','No, people still need to test it'],answer:1,explain:'Code checks cover only part of the job. Readability, clarity, and usefulness need human review.'},
 {title:'Save & share your learning',session:2,source:'',intro:'You built a page from real HTML and CSS. Now show what you understand.',learn:'Download my website saves a complete HTML file with your CSS inside it. Open it locally to view it. A downloaded file is not published online. Hosting and JavaScript can be next steps after this workshop.',tasks:['Download your final website and open the file to confirm it works.','Give a short tour: subject, one code change, and what it does.','Write the next thing you want to learn.'],hint:'Keep your downloaded file somewhere you can find. Browser progress stays on this device and does not travel with that file. Discuss public sharing separately with Xavier and your family.',fields:[['reflection','One thing I can now explain'],['nextGoal','Next I want to learn']],question:'Is your downloaded HTML file already a public website?',options:['Yes','No'],answer:1,explain:'It is a local file. Publishing requires a separate hosting step.'}
 ];
+// Periodic Table of the Web: the elements and properties each lesson adds to a student's table.
+const elements=[
+ [0,'Pl','plan','plan','Your page’s purpose'],
+ [0,'Ht','HTML','html','Describes the content'],
+ [0,'Cs','CSS','css','Controls the look'],
+ [1,'H1','<h1>','html','Main heading'],
+ [1,'P','<p>','html','Paragraph'],
+ [2,'H2','<h2>','html','Section heading'],
+ [2,'Ul','<ul>','html','Unordered list'],
+ [2,'Li','<li>','html','One list item'],
+ [2,'Sc','<section>','html','Groups a topic'],
+ [3,'A','<a>','html','Creates a link'],
+ [3,'Hf','href','html','Link destination'],
+ [3,'Ti','<title>','html','Names the browser tab'],
+ [4,'Co','color','css','Text color'],
+ [4,'Bg','background-color','css','Fills behind content'],
+ [5,'Pd','padding','css','Room inside a box'],
+ [5,'Mg','margin','css','Space outside a box'],
+ [5,'Mw','max-width','css','Limits how wide it grows'],
+ [5,'Lh','line-height','css','Space between lines'],
+ [6,'Ck','code check','plan','Finds missing pieces'],
+ [6,'Bu','buddy test','plan','A person tries it'],
+ [7,'Sv','.html file','plan','Your page, saved']
+].map(([lesson,sym,name,fam,def],i)=>({n:i+1,lesson,sym,name,fam,def}));
+const icon=(name,cls='')=>`<svg class="i ${cls}" aria-hidden="true"><use href="#i-${name}"/></svg>`;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const key='xavier-first-website-v1';
 const fresh=()=>({html:originalHTML,css:originalCSS,current:0,done:[],answers:{},notes:{},checks:[]});
-let state=fresh(),storageOK=true;
+let state=fresh(),storageOK=true,tableFocus=0;
 try{const saved=JSON.parse(localStorage.getItem(key));if(saved&&typeof saved.html==='string'&&typeof saved.css==='string'&&Number.isInteger(saved.current)&&saved.current>=0&&saved.current<lessons.length&&Array.isArray(saved.done)&&saved.answers&&typeof saved.answers==='object'&&saved.notes&&typeof saved.notes==='object'&&Array.isArray(saved.checks))state=saved;}catch{storageOK=false;}
-function save(){try{localStorage.setItem(key,JSON.stringify(state));storageOK=true;$('save-status').textContent='Saved in this browser';}catch{storageOK=false;$('save-status').textContent='Browser saving unavailable — download your work';}}
-function nav(){
- $('lesson-nav').innerHTML=[1,2].map(session=>`<p class="group-label">Session ${session}</p>`+lessons.map((l,i)=>l.session!==session?'':`<button class="lesson-link ${state.done.includes(i)?'done':''}" data-lesson="${i}" ${i===state.current?'aria-current="step"':''}><span class="step-dot" aria-hidden="true">${i+1}</span><span>${esc(l.title)}${state.done.includes(i)?'<span class="subtle"> · done</span>':''}</span></button>`).join('')).join('');
+function save(){try{localStorage.setItem(key,JSON.stringify(state));storageOK=true;$('save-status').textContent='Saved in this browser';$('save-status').dataset.state='ok';}catch{storageOK=false;$('save-status').textContent='Browser saving unavailable — download your work';$('save-status').dataset.state='error';}}
+function nav(justFilled=-1){
+ $('lesson-nav').innerHTML=[1,2].map(session=>`<p class="group-label"><span class="swatch fam-${session===1?'html':'css'}" aria-hidden="true"></span>Session ${session} · ${session===1?'HTML':'CSS'}</p>`+lessons.map((l,i)=>l.session!==session?'':`<button class="lesson-link ${state.done.includes(i)?'done':''}" data-lesson="${i}" ${i===state.current?'aria-current="step"':''}><span class="step-dot" aria-hidden="true">${i+1}</span><span>${esc(l.title)}${state.done.includes(i)?'<span class="sr-only"> · done</span>':''}</span>${state.done.includes(i)?icon('check','done-mark'):''}</button>`).join('')).join('');
+ $('ptable').innerHTML=lessons.map((l,i)=>`<li class="pt-col${i===state.current?' is-current':''}"><span class="pt-group" aria-hidden="true">${i+1}</span><ul class="pt-tiles" aria-label="Lesson ${i+1}">${elements.filter(e=>e.lesson===i).map((e,k)=>`<li class="pt-tile fam-${e.fam}${state.done.includes(i)?' is-filled':''}${justFilled===i?' just-filled':''}" style="--k:${k}" tabindex="${e.n-1===tableFocus?0:-1}" data-tip="${esc(e.name)} · ${esc(e.def)}"><span aria-hidden="true">${esc(e.sym)}</span><span class="sr-only">${esc(e.name)}: ${esc(e.def)}${state.done.includes(i)?', collected':', not collected yet'}</span></li>`).join('')}</ul></li>`).join('');
+ $('element-count').textContent=`${elements.filter(e=>state.done.includes(e.lesson)).length} of ${elements.length} elements`;
  $('progress').value=state.done.length;$('progress-label').textContent=`${state.done.length} of ${lessons.length} lessons complete`;
 }
 function render(focus=false){
- const l=lessons[state.current];nav();$('session-label').textContent=`Session ${l.session}`;$('lesson-count').textContent=`Lesson ${state.current+1} of ${lessons.length}`;$('lesson-title').textContent=l.title;
- $('lesson-body').innerHTML=`<p class="intro">${esc(l.intro)}</p><h3>The idea</h3><p>${esc(l.learn)}</p>${l.snippet?`<pre class="snippet"><code>${esc(l.snippet)}</code></pre>`:''}<h3>Your turn</h3><ol class="task-list">${l.tasks.map(t=>`<li>${esc(t)}</li>`).join('')}</ol>${(l.fields||[]).map(([id,label])=>`<label class="field-label" for="${id}">${esc(label)}</label><input type="text" id="${id}" data-note="${id}" value="${esc(state.notes[id]||'')}" maxlength="500">`).join('')}${l.checks?`<div class="checklist">${l.checks.map((c,i)=>`<label><input type="checkbox" data-check="${i}" ${state.checks.includes(i)?'checked':''}>${esc(c)}</label>`).join('')}</div>`:''}<details><summary>Need a hint?</summary><p class="hint">${esc(l.hint)}</p></details><details ${state.answers[state.current]!==undefined?'open':''}><summary>Quick understanding check</summary><p>${esc(l.question)}</p><div class="utility">${l.options.map((o,i)=>`<button data-answer="${i}" aria-pressed="${state.answers[state.current]===i}">${esc(o)}</button>`).join('')}</div><p id="quiz-result" role="status" class="hint">${state.answers[state.current]===undefined?'':state.answers[state.current]===l.answer?'Correct. '+esc(l.explain):'Try again. '+esc(l.explain)}</p></details>`;
- $('source').innerHTML=`Learning source: <a href="${base+(l.source?'/'+l.source:'')}" target="_blank" rel="noopener">MDN ${l.source==='Styling_the_content'?'CSS guide':l.source==='Creating_the_content'?'HTML guide':l.source?'planning guide':'beginner guide'} ↗</a>. Original workshop exercises; not an MDN course or endorsement.`;
- $('previous').disabled=state.current===0;$('next').disabled=state.current===lessons.length-1;$('complete').textContent=state.done.includes(state.current)?'Undo completion':'Mark complete';$('feedback').textContent='';if(focus)$('lesson-title').focus();
+ const l=lessons[state.current];nav();const ans=state.answers[state.current],quizClass=ans===undefined?'':ans===l.answer?'is-ok':'is-retry';$('session-label').textContent=`Session ${l.session}`;$('session-label').className=`session-chip fam-${l.session===1?'html':'css'}`;$('lesson-elements').innerHTML=elements.filter(e=>e.lesson===state.current).map((e,k)=>`<li style="--k:${k}" class="tile fam-${e.fam}${state.done.includes(state.current)?' is-collected':''}"><span class="tile-n" aria-hidden="true">${e.n}</span>${icon('check','tile-check')}<span class="tile-sym" aria-hidden="true">${esc(e.sym)}</span><code class="tile-name">${esc(e.name).replace(/-/g,'-<wbr>')}</code><span class="tile-def">${esc(e.def)}</span></li>`).join('');$('lesson-count').textContent=`Lesson ${state.current+1} of ${lessons.length}`;$('lesson-title').textContent=l.title;
+ $('lesson-body').innerHTML=`<p class="intro">${esc(l.intro)}</p><h3>The idea</h3><p>${esc(l.learn)}</p>${l.snippet?`<pre class="snippet"><code>${esc(l.snippet)}</code></pre>`:''}<h3>Your turn</h3><ol class="task-list">${l.tasks.map(t=>`<li>${esc(t)}</li>`).join('')}</ol>${(l.fields||[]).map(([id,label])=>`<label class="field-label" for="${id}">${esc(label)}</label><input type="text" id="${id}" data-note="${id}" value="${esc(state.notes[id]||'')}" maxlength="500">`).join('')}${l.checks?`<div class="checklist">${l.checks.map((c,i)=>`<label><input type="checkbox" data-check="${i}" ${state.checks.includes(i)?'checked':''}>${esc(c)}</label>`).join('')}</div>`:''}<details><summary>${icon('chevron')}Need a hint?</summary><p class="hint">${esc(l.hint)}</p></details><details ${state.answers[state.current]!==undefined?'open':''}><summary>${icon('chevron')}Quick understanding check</summary><p>${esc(l.question)}</p><div class="utility">${l.options.map((o,i)=>`<button data-answer="${i}" aria-pressed="${state.answers[state.current]===i}">${esc(o)}</button>`).join('')}</div><p id="quiz-result" role="status" class="hint quiz-result ${quizClass}">${state.answers[state.current]===undefined?'':state.answers[state.current]===l.answer?'Correct. '+esc(l.explain):'Try again. '+esc(l.explain)}</p></details>`;
+ $('source').innerHTML=`Learning source: <a href="${base+(l.source?'/'+l.source:'')}" target="_blank" rel="noopener">MDN ${l.source==='Styling_the_content'?'CSS guide':l.source==='Creating_the_content'?'HTML guide':l.source?'planning guide':'beginner guide'}${icon('external')}<span class="sr-only"> (opens in a new tab)</span></a>. Original workshop exercises; not an MDN course or endorsement.`;
+ $('previous').disabled=state.current===0;$('next').disabled=state.current===lessons.length-1;syncComplete();$('feedback').textContent='';if(focus)$('lesson-title').focus();
 }
+function syncComplete(){const done=state.done.includes(state.current);$('complete-label').textContent=done?'Undo completion':'Mark complete';$('complete').classList.toggle('is-done',done);}
 function switchCode(type){for(const t of ['html','css']){$(t+'-code').hidden=t!==type;$(t+'-tab').setAttribute('aria-pressed',String(t===type));}$('code-note').textContent=type==='html'?'HTML gives your page structure.':'CSS changes how your page looks.';}
 function pageDocument(preview=false){
  const doc=new DOMParser().parseFromString(state.html,'text/html');
@@ -113,10 +222,10 @@ function pageDocument(preview=false){
  const css=state.css.replace(/<\/style/gi,'<\\/style');
  return `<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n${policy}<title>${esc(heading)}</title>\n<style>\n${css}\n</style>\n</head>\n<body>\n${doc.body.innerHTML}\n</body>\n</html>`;
 }
-function run(){ $('preview').srcdoc=pageDocument(true);$('preview-status').textContent='Preview up to date'; }
+function run(){ $('preview').srcdoc=pageDocument(true);$('preview-status').textContent='Preview up to date';$('preview-status').dataset.state='fresh'; }
 function checkCode(){
  const d=new DOMParser().parseFromString(state.html,'text/html');const list=[];
- const record=(ok,yes,no)=>list.push((ok?'Found: ':'Try: ')+(ok?yes:no));
+ const record=(ok,yes,no)=>list.push({ok,text:(ok?'Found: ':'Try: ')+(ok?yes:no)});
  record(d.querySelectorAll('h1').length===1&&d.querySelector('h1').textContent.trim()!=='My first website','One personalized main heading.','use one h1 and replace the starter heading.');
  record([...d.querySelectorAll('p')].some(p=>p.textContent.trim().length>15&&!p.textContent.includes('Write a short introduction')),'A paragraph with your own content.','write your introduction inside a p element.');
  record(d.querySelectorAll('ul > li').length>=3&&!/My first interest|My second interest|Something I want to learn/.test(d.body.textContent),'Three personalized list items.','replace the three starter interests inside li elements.');
@@ -124,18 +233,24 @@ function checkCode(){
  record([...d.querySelectorAll('a[href]')].some(a=>/^https?:\/\/\S+$/i.test(a.getAttribute('href'))&&a.textContent.trim().length>3&&!/^click here$/i.test(a.textContent.trim())),'A descriptive web link (test its destination yourself).','add an a element with an https:// address and descriptive text.');
  let rules=[];try{const sheet=new CSSStyleSheet();sheet.replaceSync(state.css);rules=[...sheet.cssRules];}catch{}
  record(rules.some(r=>r.style?.length),'CSS rules the browser can read.','check CSS braces, selectors, and declarations.');
- $('feedback').innerHTML='<strong>Basic code check</strong><ul>'+list.map(t=>`<li>${esc(t)}</li>`).join('')+'</ul><p>This is not a full HTML/CSS validator. Check your preview and ask a buddy to review it.</p>';
+ $('feedback').innerHTML='<strong>Basic code check</strong><ul>'+list.map(r=>`<li class="${r.ok?'found':'try'}">${icon(r.ok?'check':'alert')}<span>${esc(r.text)}</span></li>`).join('')+'</ul><p>This is not a full HTML/CSS validator. Check your preview and ask a buddy to review it.</p>';
 }
 function openDialog(title,html){$('dialog-title').textContent=title;$('dialog-body').innerHTML=html;$('help-dialog').showModal();}
+// Your table: one tab stop, arrow keys move between elements (left/right through the table, up/down within a lesson).
+$('ptable').addEventListener('keydown',e=>{const tiles=[...$('ptable').querySelectorAll('.pt-tile')],i=tiles.indexOf(document.activeElement);if(i<0)return;let j=i;
+ if(e.key==='ArrowRight')j=Math.min(i+1,tiles.length-1);else if(e.key==='ArrowLeft')j=Math.max(i-1,0);
+ else if(e.key==='ArrowDown'||e.key==='ArrowUp'){const col=elements.filter(x=>x.lesson===elements[i].lesson),k=col.indexOf(elements[i])+(e.key==='ArrowDown'?1:-1);if(col[k])j=col[k].n-1;}
+ else if(e.key==='Home')j=0;else if(e.key==='End')j=tiles.length-1;else return;
+ e.preventDefault();tiles[i].tabIndex=-1;tiles[j].tabIndex=0;tableFocus=j;tiles[j].focus();});
 $('lesson-nav').addEventListener('click',e=>{const b=e.target.closest('[data-lesson]');if(!b)return;state.current=Number(b.dataset.lesson);save();render(true);});
 $('lesson-body').addEventListener('input',e=>{if(e.target.dataset.note){state.notes[e.target.dataset.note]=e.target.value;save();}});
 $('lesson-body').addEventListener('change',e=>{if(e.target.dataset.check!==undefined){const n=Number(e.target.dataset.check);state.checks=state.checks.filter(v=>v!==n);if(e.target.checked)state.checks.push(n);save();}});
-$('lesson-body').addEventListener('click',e=>{const b=e.target.closest('[data-answer]');if(!b)return;const l=lessons[state.current],answer=Number(b.dataset.answer);state.answers[state.current]=answer;save();$('quiz-result').textContent=(answer===l.answer?'Correct. ':'Try again. ')+l.explain;document.querySelectorAll('[data-answer]').forEach(el=>el.setAttribute('aria-pressed',String(Number(el.dataset.answer)===answer)));});
-for(const t of ['html','css']){$(t+'-code').value=state[t];$(t+'-code').addEventListener('input',e=>{state[t]=e.target.value;save();$('preview-status').textContent='Changes ready to run';});$(t+'-tab').onclick=()=>switchCode(t);}
+$('lesson-body').addEventListener('click',e=>{const b=e.target.closest('[data-answer]');if(!b)return;const l=lessons[state.current],answer=Number(b.dataset.answer);state.answers[state.current]=answer;save();$('quiz-result').textContent=(answer===l.answer?'Correct. ':'Try again. ')+l.explain;$('quiz-result').className='hint quiz-result '+(answer===l.answer?'is-ok':'is-retry');document.querySelectorAll('[data-answer]').forEach(el=>el.setAttribute('aria-pressed',String(Number(el.dataset.answer)===answer)));});
+for(const t of ['html','css']){$(t+'-code').value=state[t];$(t+'-code').addEventListener('input',e=>{state[t]=e.target.value;save();$('preview-status').textContent='Changes ready to run';$('preview-status').dataset.state='stale';});$(t+'-tab').onclick=()=>switchCode(t);}
 $('run').onclick=run;$('check').onclick=checkCode;
 $('previous').onclick=()=>{if(state.current>0){state.current--;save();render(true);}};
 $('next').onclick=()=>{if(state.current<lessons.length-1){state.current++;save();render(true);if(state.current===4)switchCode('css');}};
-$('complete').onclick=()=>{const i=state.current;state.done=state.done.includes(i)?state.done.filter(x=>x!==i):[...state.done,i];save();nav();$('complete').textContent=state.done.includes(i)?'Undo completion':'Mark complete';$('feedback').textContent=state.done.includes(i)?'Marked complete by you. Be ready to explain your work to Xavier.':'Completion removed. Keep practicing.';};
+$('complete').onclick=()=>{const i=state.current,adding=!state.done.includes(i);state.done=adding?[...state.done,i]:state.done.filter(x=>x!==i);save();nav(adding?i:-1);syncComplete();document.querySelectorAll('#lesson-elements .tile').forEach(t=>{t.classList.toggle('just-collected',adding);t.classList.toggle('is-collected',adding);});$('feedback').textContent=state.done.includes(i)?'Marked complete by you. Be ready to explain your work to Xavier.':'Completion removed. Keep practicing.';};
 for(const type of ['wide','narrow'])$(type).onclick=()=>{$('preview').classList.toggle('narrow',type==='narrow');$('wide').setAttribute('aria-pressed',String(type==='wide'));$('narrow').setAttribute('aria-pressed',String(type==='narrow'));};
 $('download').onclick=()=>{const blob=new Blob([pageDocument()],{type:'text/html'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='my-first-website.html';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 $('reset').onclick=()=>{if(!confirm('Reset all your code, lesson notes, and progress in this browser? Download your website first if you want to keep it.'))return;state=fresh();$('html-code').value=state.html;$('css-code').value=state.css;switchCode('html');save();render();run();};
@@ -143,7 +258,7 @@ $('ai-help').onclick=()=>openDialog('Ask for a hint, not a whole website',`<p>No
 $('facilitator').onclick=()=>openDialog('Xavier’s session notes',`<p><strong>10 students · grades 7–11 · two sessions.</strong> Each student owns their page. Use five buddy pairs for checks, with helpers explaining rather than taking over.</p><h3>Session 1 · HTML</h3><p>Plan → headings and introduction → lists and sections → links, AI explanation, and review.</p><h3>Session 2 · CSS</h3><p>Color and CSS rules → spacing and narrow preview → buddy testing and one AI debugging example → downloads and showcases.</p><h3>Before class</h3><ul><li>Open this tool on every laptop. Test typing, Run preview, download, and reopening the downloaded file.</li><li>Rehearse one change at a time. Keep demonstrations short and let students build.</li><li>Let students use a nickname, hobby, or fictional profile. No personal photo is required.</li></ul><h3>Check understanding</h3><p>Ask each student to change a heading, explain a CSS rule, and show a tested improvement. Completion marks are self-reported, not test scores. This local tool has no teacher dashboard.</p><h3>If someone finishes early</h3><p>Add another project section, or an internal link using an id. Images are optional later: explain src, meaningful alt text, and permission to use an image. Public publishing and JavaScript are outside these first two sessions.</p><h3>About the learning source</h3><p>Original exercises organized around <a href="${base}" target="_blank" rel="noopener">MDN’s beginner website guide</a>. The guide also covers images, JavaScript, and publishing; this workshop focuses on planning, HTML, and CSS. Instructional copy is a draft for Xavier to review before teaching.</p>`);
 $('close-dialog').onclick=()=>$('help-dialog').close();
 $('menu-toggle').onclick=()=>{const opened=$('sidebar').classList.toggle('open');$('menu-toggle').setAttribute('aria-expanded',String(opened));};
-render();run();if(!storageOK)$('save-status').textContent='Browser saving unavailable — download your work';
+render();run();if(!storageOK){$('save-status').textContent='Browser saving unavailable — download your work';$('save-status').dataset.state='error';}
 </script>
 </body>
 </html>
