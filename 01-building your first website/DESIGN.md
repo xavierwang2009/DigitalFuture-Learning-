@@ -6,8 +6,11 @@ colors:
   bg-2: "#f0f0f3"
   shadow-dark: "#b8bcc2"
   shadow-light: "#ffffff"
+  heading: "#2b2f36"
   ink: "#333333"
   ink-2: "#545b66"
+  control-ink: "#3d434c"
+  error-ink: "#a3125c"
   accent: "#6d5dfc"
   html: "#2546e8"
   css: "#c2186e"
@@ -46,6 +49,9 @@ All tokens live in `:root` in `style.css`.
 ## Signature: Periodic Table of the Web
 - Each lesson shows its elements as raised tiles: a number, a symbol in its family colour, the name, and a definition. When a lesson is marked complete, its tiles press into the surface one after another (110ms stagger) and a check appears.
 - "Your table" in the rail has 40 small tiles in a 6-column grid (lessons 1–6, then 7–12). It has one tab stop, arrow-key movement, and a tooltip on hover or focus.
+
+## Playground
+- `playground.html` reuses the same tokens: an editor panel (HTML/CSS/JS tabs, Auto-run), a preview panel with Phone 375 / Tablet 768 / Desktop widths, and an inset console.
 
 ## Responsive
 - 1150px: narrower rail; lesson stacked above editor and preview.

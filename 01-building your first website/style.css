@@ -96,7 +96,7 @@ a {
   text-underline-offset: 3px;
   transition: color var(--soft);
 }
-a:hover { color: var(--accent); text-decoration-thickness: 2px; }
+a:hover { text-decoration-thickness: 2px; }
 
 button, input, textarea, select { font: inherit; color: inherit; }
 button, a, input, textarea, summary { touch-action: manipulation; }
@@ -230,7 +230,6 @@ button[aria-pressed="true"] { box-shadow: var(--in-sm); color: var(--accent-dark
   font-size: 9px;
   font-weight: 650;
   font-stretch: 100%;
-  opacity: 0.85;
 }
 .brand-name { font-size: 17px; font-weight: 700; line-height: 1.15; color: #2b2f36; }
 .tagline { margin: 0 0 4px; font-size: 13.5px; color: var(--ink-2); }
@@ -734,7 +733,7 @@ details > :not(summary) { margin-left: 6px; margin-right: 6px; }
   font-size: 12.5px;
   color: var(--ink-2);
 }
-#code-note.is-error { color: var(--css); font-weight: 650; }
+#code-note.is-error { color: #a3125c; font-weight: 650; }
 #preview-status { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
 #preview-status::before {
   content: "";
@@ -764,6 +763,14 @@ iframe.narrow { width: 320px; max-width: 100%; }
 
 .tools { gap: 14px; }
 .tools button { font-size: 13.5px; }
+.pg-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 18px;
+  border-radius: var(--r-md); background: var(--bg); box-shadow: var(--out-md);
+  color: var(--accent-dark); font-size: 13.5px; font-weight: 650; text-decoration: none;
+  transition: box-shadow var(--soft);
+}
+.pg-link:hover { box-shadow: var(--out-xs); }
+.pg-link:active { box-shadow: var(--in-sm); }
 
 .loop {
   display: flex;

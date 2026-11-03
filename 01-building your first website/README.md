@@ -8,4 +8,7 @@ A two-session workshop for grades 7–11 by Xavier Wang.
 **Open the workshop in your browser:**
 https://xavierwang2009.github.io/DigitalFuture-Learning-/01-building%20your%20first%20website/
 
+**Test your code in the playground** (paste or load your files, preview at phone, tablet, and desktop sizes, and see console output):
+https://xavierwang2009.github.io/DigitalFuture-Learning-/01-building%20your%20first%20website/playground.html
+
 No account needed. Your work is saved in your own browser, and nothing is sent to an AI service.
