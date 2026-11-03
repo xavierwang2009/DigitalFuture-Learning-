@@ -97,4 +97,4 @@ Keep colour for meaning: primary actions, status dots, and small category marks.
 
 ## Example in this repo
 
-`01-building your first website/style.css` and `playground.html` are full working examples: a lesson rail, cards, segmented tabs, inset editors, a preview well, a console, a dialog, and tiles that press in when completed.
+`01-building your first website/style.css` and `playground/index.html` are full working examples: a lesson rail, cards, segmented tabs, inset editors, a preview well, a console, a dialog, and tiles that press in when completed.
